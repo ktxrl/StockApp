@@ -1,0 +1,609 @@
+<html>
+  <head>
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="" />
+    <link
+      rel="stylesheet"
+      as="style"
+      onload="this.rel='stylesheet'"
+      href="https://fonts.googleapis.com/css2?display=swap&amp;family=Inter%3Awght%40400%3B500%3B700%3B900&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900"
+    />
+
+    <title>Stitch Design</title>
+    <link rel="icon" type="image/x-icon" href="data:image/x-icon;base64," />
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  </head>
+  <body>
+    <div class="relative flex size-full min-h-screen flex-col bg-white group/design-root overflow-x-hidden" style='font-family: Inter, "Noto Sans", sans-serif;'>
+      <div class="layout-container flex h-full grow flex-col">
+        <header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#f0f2f5] px-10 py-3">
+          <div class="flex items-center gap-4 text-[#111418]">
+            <div class="size-4">
+              <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M44 4H30.6666V17.3334H17.3334V30.6666H4V44H44V4Z" fill="currentColor"></path></svg>
+            </div>
+            <h2 class="text-[#111418] text-lg font-bold leading-tight tracking-[-0.015em]">TradeWise</h2>
+          </div>
+          <div class="flex flex-1 justify-end gap-8">
+            <div class="flex items-center gap-9">
+              <a class="text-[#111418] text-sm font-medium leading-normal" href="#">Dashboard</a>
+              <a class="text-[#111418] text-sm font-medium leading-normal" href="#">Portfolio</a>
+              <a class="text-[#111418] text-sm font-medium leading-normal" href="#">News</a>
+            </div>
+            <button
+              class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 bg-[#f0f2f5] text-[#111418] gap-2 text-sm font-bold leading-normal tracking-[0.015em] min-w-0 px-2.5"
+            >
+              <div class="text-[#111418]" data-icon="Bell" data-size="20px" data-weight="regular">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill="currentColor" viewBox="0 0 256 256">
+                  <path
+                    d="M221.8,175.94C216.25,166.38,208,139.33,208,104a80,80,0,1,0-160,0c0,35.34-8.26,62.38-13.81,71.94A16,16,0,0,0,48,200H88.81a40,40,0,0,0,78.38,0H208a16,16,0,0,0,13.8-24.06ZM128,216a24,24,0,0,1-22.62-16h45.24A24,24,0,0,1,128,216ZM48,184c7.7-13.24,16-43.92,16-80a64,64,0,1,1,128,0c0,36.05,8.28,66.73,16,80Z"
+                  ></path>
+                </svg>
+              </div>
+            </button>
+            <div
+              class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10"
+              style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDGnitioKViyZGGWzuJ54RONu8NDPajs6sD_GonXA6k6QD3oC6tnh9-XBLPWm8sWdZ5eVu3dR545Y7XNx5WmeKgAs-nJAIRcPt-wRJMSua48LtjtQudOHfCzbF6APvIYfef45yXE9g8Ja95wHmQtzBvFwHIh8ykWTORxlSteuGQfjEKyeIe-mfegH4iaqMwJV_9E7C4gBL_nD007o-CwGubGgxUgYORIeWetslCywx2qnqGR9-kpmgX7uNDK6tgLSPV0mqHaqfeSQw1");'
+            ></div>
+          </div>
+        </header>
+        <div class="px-40 flex flex-1 justify-center py-5">
+          <div class="layout-content-container flex flex-col max-w-[960px] flex-1">
+            <div class="flex flex-wrap justify-between gap-3 p-4"><p class="text-[#111418] tracking-light text-[32px] font-bold leading-tight min-w-72">Portfolio</p></div>
+            <div class="flex flex-wrap gap-3 px-4 py-3">
+              <div class="flex min-w-[111px] flex-1 basis-[fit-content] flex-col gap-2 rounded-lg border border-[#dbe0e6] p-3 items-start">
+                <p class="text-[#111418] tracking-light text-2xl font-bold leading-tight">$52,430</p>
+                <div class="flex items-center gap-2"><p class="text-[#60758a] text-sm font-normal leading-normal">Total Portfolio Value</p></div>
+              </div>
+              <div class="flex min-w-[111px] flex-1 basis-[fit-content] flex-col gap-2 rounded-lg border border-[#dbe0e6] p-3 items-start">
+                <p class="text-[#111418] tracking-light text-2xl font-bold leading-tight">+2.5%</p>
+                <div class="flex items-center gap-2"><p class="text-[#60758a] text-sm font-normal leading-normal">Daily P&amp;L</p></div>
+              </div>
+              <div class="flex min-w-[111px] flex-1 basis-[fit-content] flex-col gap-2 rounded-lg border border-[#dbe0e6] p-3 items-start">
+                <p class="text-[#111418] tracking-light text-2xl font-bold leading-tight">+$1,250</p>
+                <div class="flex items-center gap-2"><p class="text-[#60758a] text-sm font-normal leading-normal">Weekly P&amp;L</p></div>
+              </div>
+            </div>
+            <h3 class="text-[#111418] text-lg font-bold leading-tight tracking-[-0.015em] px-4 pb-2 pt-4">Key Stats</h3>
+            <div class="flex flex-wrap gap-4 p-4">
+              <div class="flex min-w-[158px] flex-1 flex-col gap-2 rounded-xl p-6 border border-[#dbe0e6]">
+                <p class="text-[#111418] text-base font-medium leading-normal">Best Performer</p>
+                <p class="text-[#111418] tracking-light text-2xl font-bold leading-tight">TechCo +5.2%</p>
+              </div>
+              <div class="flex min-w-[158px] flex-1 flex-col gap-2 rounded-xl p-6 border border-[#dbe0e6]">
+                <p class="text-[#111418] text-base font-medium leading-normal">Worst Performer</p>
+                <p class="text-[#111418] tracking-light text-2xl font-bold leading-tight">BioCorp -3.1%</p>
+              </div>
+              <div class="flex min-w-[158px] flex-1 flex-col gap-2 rounded-xl p-6 border border-[#dbe0e6]">
+                <p class="text-[#111418] text-base font-medium leading-normal">Cash Balance</p>
+                <p class="text-[#111418] tracking-light text-2xl font-bold leading-tight">$10,000</p>
+              </div>
+            </div>
+            <h3 class="text-[#111418] text-lg font-bold leading-tight tracking-[-0.015em] px-4 pb-2 pt-4">Holdings</h3>
+            <div class="px-4 py-3 @container">
+              <div class="flex overflow-hidden rounded-xl border border-[#dbe0e6] bg-white">
+                <table class="flex-1">
+                  <thead>
+                    <tr class="bg-white">
+                      <th class="table-50925e9e-c046-4081-91dc-f4b0213dec1a-column-120 px-4 py-3 text-left text-[#111418] w-[400px] text-sm font-medium leading-normal">
+                        Ticker &amp; Company
+                      </th>
+                      <th class="table-50925e9e-c046-4081-91dc-f4b0213dec1a-column-240 px-4 py-3 text-left text-[#111418] w-[400px] text-sm font-medium leading-normal">
+                        Current Price
+                      </th>
+                      <th class="table-50925e9e-c046-4081-91dc-f4b0213dec1a-column-360 px-4 py-3 text-left text-[#111418] w-[400px] text-sm font-medium leading-normal">
+                        Shares Held
+                      </th>
+                      <th class="table-50925e9e-c046-4081-91dc-f4b0213dec1a-column-480 px-4 py-3 text-left text-[#111418] w-[400px] text-sm font-medium leading-normal">
+                        Market Value
+                      </th>
+                      <th class="table-50925e9e-c046-4081-91dc-f4b0213dec1a-column-600 px-4 py-3 text-left text-[#111418] w-[400px] text-sm font-medium leading-normal">
+                        Avg Buy Price
+                      </th>
+                      <th class="table-50925e9e-c046-4081-91dc-f4b0213dec1a-column-720 px-4 py-3 text-left text-[#111418] w-[400px] text-sm font-medium leading-normal">
+                        Unrealized P&amp;L
+                      </th>
+                      <th class="table-50925e9e-c046-4081-91dc-f4b0213dec1a-column-840 px-4 py-3 text-left text-[#111418] w-[400px] text-sm font-medium leading-normal">
+                        Daily % Change
+                      </th>
+                      <th class="table-50925e9e-c046-4081-91dc-f4b0213dec1a-column-960 px-4 py-3 text-left text-[#111418] w-60 text-sm font-medium leading-normal">AI Alignment</th>
+                      <th class="table-50925e9e-c046-4081-91dc-f4b0213dec1a-column-1080 px-4 py-3 text-left text-[#111418] w-60 text-[#60758a] text-sm font-medium leading-normal">
+                        Actions
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr class="border-t border-t-[#dbe0e6]">
+                      <td class="table-50925e9e-c046-4081-91dc-f4b0213dec1a-column-120 h-[72px] px-4 py-2 w-[400px] text-[#111418] text-sm font-normal leading-normal">TechCo</td>
+                      <td class="table-50925e9e-c046-4081-91dc-f4b0213dec1a-column-240 h-[72px] px-4 py-2 w-[400px] text-[#60758a] text-sm font-normal leading-normal">$150.25</td>
+                      <td class="table-50925e9e-c046-4081-91dc-f4b0213dec1a-column-360 h-[72px] px-4 py-2 w-[400px] text-[#60758a] text-sm font-normal leading-normal">100</td>
+                      <td class="table-50925e9e-c046-4081-91dc-f4b0213dec1a-column-480 h-[72px] px-4 py-2 w-[400px] text-[#60758a] text-sm font-normal leading-normal">$15,025</td>
+                      <td class="table-50925e9e-c046-4081-91dc-f4b0213dec1a-column-600 h-[72px] px-4 py-2 w-[400px] text-[#60758a] text-sm font-normal leading-normal">$145.00</td>
+                      <td class="table-50925e9e-c046-4081-91dc-f4b0213dec1a-column-720 h-[72px] px-4 py-2 w-[400px] text-[#60758a] text-sm font-normal leading-normal">
+                        +$525 (+3.6%)
+                      </td>
+                      <td class="table-50925e9e-c046-4081-91dc-f4b0213dec1a-column-840 h-[72px] px-4 py-2 w-[400px] text-[#60758a] text-sm font-normal leading-normal">+1.2%</td>
+                      <td class="table-50925e9e-c046-4081-91dc-f4b0213dec1a-column-960 h-[72px] px-4 py-2 w-60 text-sm font-normal leading-normal">
+                        <button
+                          class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-8 px-4 bg-[#f0f2f5] text-[#111418] text-sm font-medium leading-normal w-full"
+                        >
+                          <span class="truncate">Aligned</span>
+                        </button>
+                      </td>
+                      <td class="table-50925e9e-c046-4081-91dc-f4b0213dec1a-column-1080 h-[72px] px-4 py-2 w-60 text-[#60758a] text-sm font-bold leading-normal tracking-[0.015em]">
+                        More Details
+                      </td>
+                    </tr>
+                    <tr class="border-t border-t-[#dbe0e6]">
+                      <td class="table-50925e9e-c046-4081-91dc-f4b0213dec1a-column-120 h-[72px] px-4 py-2 w-[400px] text-[#111418] text-sm font-normal leading-normal">BioCorp</td>
+                      <td class="table-50925e9e-c046-4081-91dc-f4b0213dec1a-column-240 h-[72px] px-4 py-2 w-[400px] text-[#60758a] text-sm font-normal leading-normal">$75.50</td>
+                      <td class="table-50925e9e-c046-4081-91dc-f4b0213dec1a-column-360 h-[72px] px-4 py-2 w-[400px] text-[#60758a] text-sm font-normal leading-normal">50</td>
+                      <td class="table-50925e9e-c046-4081-91dc-f4b0213dec1a-column-480 h-[72px] px-4 py-2 w-[400px] text-[#60758a] text-sm font-normal leading-normal">$3,775</td>
+                      <td class="table-50925e9e-c046-4081-91dc-f4b0213dec1a-column-600 h-[72px] px-4 py-2 w-[400px] text-[#60758a] text-sm font-normal leading-normal">$80.00</td>
+                      <td class="table-50925e9e-c046-4081-91dc-f4b0213dec1a-column-720 h-[72px] px-4 py-2 w-[400px] text-[#60758a] text-sm font-normal leading-normal">
+                        -$225 (-5.6%)
+                      </td>
+                      <td class="table-50925e9e-c046-4081-91dc-f4b0213dec1a-column-840 h-[72px] px-4 py-2 w-[400px] text-[#60758a] text-sm font-normal leading-normal">-2.1%</td>
+                      <td class="table-50925e9e-c046-4081-91dc-f4b0213dec1a-column-960 h-[72px] px-4 py-2 w-60 text-sm font-normal leading-normal">
+                        <button
+                          class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-8 px-4 bg-[#f0f2f5] text-[#111418] text-sm font-medium leading-normal w-full"
+                        >
+                          <span class="truncate">Disagrees</span>
+                        </button>
+                      </td>
+                      <td class="table-50925e9e-c046-4081-91dc-f4b0213dec1a-column-1080 h-[72px] px-4 py-2 w-60 text-[#60758a] text-sm font-bold leading-normal tracking-[0.015em]">
+                        More Details
+                      </td>
+                    </tr>
+                    <tr class="border-t border-t-[#dbe0e6]">
+                      <td class="table-50925e9e-c046-4081-91dc-f4b0213dec1a-column-120 h-[72px] px-4 py-2 w-[400px] text-[#111418] text-sm font-normal leading-normal">EnergyCo</td>
+                      <td class="table-50925e9e-c046-4081-91dc-f4b0213dec1a-column-240 h-[72px] px-4 py-2 w-[400px] text-[#60758a] text-sm font-normal leading-normal">$200.00</td>
+                      <td class="table-50925e9e-c046-4081-91dc-f4b0213dec1a-column-360 h-[72px] px-4 py-2 w-[400px] text-[#60758a] text-sm font-normal leading-normal">25</td>
+                      <td class="table-50925e9e-c046-4081-91dc-f4b0213dec1a-column-480 h-[72px] px-4 py-2 w-[400px] text-[#60758a] text-sm font-normal leading-normal">$5,000</td>
+                      <td class="table-50925e9e-c046-4081-91dc-f4b0213dec1a-column-600 h-[72px] px-4 py-2 w-[400px] text-[#60758a] text-sm font-normal leading-normal">$195.00</td>
+                      <td class="table-50925e9e-c046-4081-91dc-f4b0213dec1a-column-720 h-[72px] px-4 py-2 w-[400px] text-[#60758a] text-sm font-normal leading-normal">
+                        +$125 (+2.5%)
+                      </td>
+                      <td class="table-50925e9e-c046-4081-91dc-f4b0213dec1a-column-840 h-[72px] px-4 py-2 w-[400px] text-[#60758a] text-sm font-normal leading-normal">+0.5%</td>
+                      <td class="table-50925e9e-c046-4081-91dc-f4b0213dec1a-column-960 h-[72px] px-4 py-2 w-60 text-sm font-normal leading-normal">
+                        <button
+                          class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-8 px-4 bg-[#f0f2f5] text-[#111418] text-sm font-medium leading-normal w-full"
+                        >
+                          <span class="truncate">No Rec</span>
+                        </button>
+                      </td>
+                      <td class="table-50925e9e-c046-4081-91dc-f4b0213dec1a-column-1080 h-[72px] px-4 py-2 w-60 text-[#60758a] text-sm font-bold leading-normal tracking-[0.015em]">
+                        More Details
+                      </td>
+                    </tr>
+                    <tr class="border-t border-t-[#dbe0e6]">
+                      <td class="table-50925e9e-c046-4081-91dc-f4b0213dec1a-column-120 h-[72px] px-4 py-2 w-[400px] text-[#111418] text-sm font-normal leading-normal">FinServ</td>
+                      <td class="table-50925e9e-c046-4081-91dc-f4b0213dec1a-column-240 h-[72px] px-4 py-2 w-[400px] text-[#60758a] text-sm font-normal leading-normal">$120.75</td>
+                      <td class="table-50925e9e-c046-4081-91dc-f4b0213dec1a-column-360 h-[72px] px-4 py-2 w-[400px] text-[#60758a] text-sm font-normal leading-normal">75</td>
+                      <td class="table-50925e9e-c046-4081-91dc-f4b0213dec1a-column-480 h-[72px] px-4 py-2 w-[400px] text-[#60758a] text-sm font-normal leading-normal">
+                        $9,056.25
+                      </td>
+                      <td class="table-50925e9e-c046-4081-91dc-f4b0213dec1a-column-600 h-[72px] px-4 py-2 w-[400px] text-[#60758a] text-sm font-normal leading-normal">$115.00</td>
+                      <td class="table-50925e9e-c046-4081-91dc-f4b0213dec1a-column-720 h-[72px] px-4 py-2 w-[400px] text-[#60758a] text-sm font-normal leading-normal">
+                        +$431.25 (+4.7%)
+                      </td>
+                      <td class="table-50925e9e-c046-4081-91dc-f4b0213dec1a-column-840 h-[72px] px-4 py-2 w-[400px] text-[#60758a] text-sm font-normal leading-normal">+1.5%</td>
+                      <td class="table-50925e9e-c046-4081-91dc-f4b0213dec1a-column-960 h-[72px] px-4 py-2 w-60 text-sm font-normal leading-normal">
+                        <button
+                          class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-8 px-4 bg-[#f0f2f5] text-[#111418] text-sm font-medium leading-normal w-full"
+                        >
+                          <span class="truncate">Aligned</span>
+                        </button>
+                      </td>
+                      <td class="table-50925e9e-c046-4081-91dc-f4b0213dec1a-column-1080 h-[72px] px-4 py-2 w-60 text-[#60758a] text-sm font-bold leading-normal tracking-[0.015em]">
+                        More Details
+                      </td>
+                    </tr>
+                    <tr class="border-t border-t-[#dbe0e6]">
+                      <td class="table-50925e9e-c046-4081-91dc-f4b0213dec1a-column-120 h-[72px] px-4 py-2 w-[400px] text-[#111418] text-sm font-normal leading-normal">RetailCo</td>
+                      <td class="table-50925e9e-c046-4081-91dc-f4b0213dec1a-column-240 h-[72px] px-4 py-2 w-[400px] text-[#60758a] text-sm font-normal leading-normal">$50.50</td>
+                      <td class="table-50925e9e-c046-4081-91dc-f4b0213dec1a-column-360 h-[72px] px-4 py-2 w-[400px] text-[#60758a] text-sm font-normal leading-normal">200</td>
+                      <td class="table-50925e9e-c046-4081-91dc-f4b0213dec1a-column-480 h-[72px] px-4 py-2 w-[400px] text-[#60758a] text-sm font-normal leading-normal">$10,100</td>
+                      <td class="table-50925e9e-c046-4081-91dc-f4b0213dec1a-column-600 h-[72px] px-4 py-2 w-[400px] text-[#60758a] text-sm font-normal leading-normal">$48.00</td>
+                      <td class="table-50925e9e-c046-4081-91dc-f4b0213dec1a-column-720 h-[72px] px-4 py-2 w-[400px] text-[#60758a] text-sm font-normal leading-normal">
+                        +$500 (+5.2%)
+                      </td>
+                      <td class="table-50925e9e-c046-4081-91dc-f4b0213dec1a-column-840 h-[72px] px-4 py-2 w-[400px] text-[#60758a] text-sm font-normal leading-normal">+2.0%</td>
+                      <td class="table-50925e9e-c046-4081-91dc-f4b0213dec1a-column-960 h-[72px] px-4 py-2 w-60 text-sm font-normal leading-normal">
+                        <button
+                          class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-8 px-4 bg-[#f0f2f5] text-[#111418] text-sm font-medium leading-normal w-full"
+                        >
+                          <span class="truncate">Aligned</span>
+                        </button>
+                      </td>
+                      <td class="table-50925e9e-c046-4081-91dc-f4b0213dec1a-column-1080 h-[72px] px-4 py-2 w-60 text-[#60758a] text-sm font-bold leading-normal tracking-[0.015em]">
+                        More Details
+                      </td>
+                    </tr>
+                    <tr class="border-t border-t-[#dbe0e6]">
+                      <td class="table-50925e9e-c046-4081-91dc-f4b0213dec1a-column-120 h-[72px] px-4 py-2 w-[400px] text-[#111418] text-sm font-normal leading-normal">PharmaCo</td>
+                      <td class="table-50925e9e-c046-4081-91dc-f4b0213dec1a-column-240 h-[72px] px-4 py-2 w-[400px] text-[#60758a] text-sm font-normal leading-normal">$85.25</td>
+                      <td class="table-50925e9e-c046-4081-91dc-f4b0213dec1a-column-360 h-[72px] px-4 py-2 w-[400px] text-[#60758a] text-sm font-normal leading-normal">120</td>
+                      <td class="table-50925e9e-c046-4081-91dc-f4b0213dec1a-column-480 h-[72px] px-4 py-2 w-[400px] text-[#60758a] text-sm font-normal leading-normal">$10,230</td>
+                      <td class="table-50925e9e-c046-4081-91dc-f4b0213dec1a-column-600 h-[72px] px-4 py-2 w-[400px] text-[#60758a] text-sm font-normal leading-normal">$82.00</td>
+                      <td class="table-50925e9e-c046-4081-91dc-f4b0213dec1a-column-720 h-[72px] px-4 py-2 w-[400px] text-[#60758a] text-sm font-normal leading-normal">
+                        +$390 (+3.8%)
+                      </td>
+                      <td class="table-50925e9e-c046-4081-91dc-f4b0213dec1a-column-840 h-[72px] px-4 py-2 w-[400px] text-[#60758a] text-sm font-normal leading-normal">+1.3%</td>
+                      <td class="table-50925e9e-c046-4081-91dc-f4b0213dec1a-column-960 h-[72px] px-4 py-2 w-60 text-sm font-normal leading-normal">
+                        <button
+                          class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-8 px-4 bg-[#f0f2f5] text-[#111418] text-sm font-medium leading-normal w-full"
+                        >
+                          <span class="truncate">Aligned</span>
+                        </button>
+                      </td>
+                      <td class="table-50925e9e-c046-4081-91dc-f4b0213dec1a-column-1080 h-[72px] px-4 py-2 w-60 text-[#60758a] text-sm font-bold leading-normal tracking-[0.015em]">
+                        More Details
+                      </td>
+                    </tr>
+                    <tr class="border-t border-t-[#dbe0e6]">
+                      <td class="table-50925e9e-c046-4081-91dc-f4b0213dec1a-column-120 h-[72px] px-4 py-2 w-[400px] text-[#111418] text-sm font-normal leading-normal">AutoCo</td>
+                      <td class="table-50925e9e-c046-4081-91dc-f4b0213dec1a-column-240 h-[72px] px-4 py-2 w-[400px] text-[#60758a] text-sm font-normal leading-normal">$180.00</td>
+                      <td class="table-50925e9e-c046-4081-91dc-f4b0213dec1a-column-360 h-[72px] px-4 py-2 w-[400px] text-[#60758a] text-sm font-normal leading-normal">50</td>
+                      <td class="table-50925e9e-c046-4081-91dc-f4b0213dec1a-column-480 h-[72px] px-4 py-2 w-[400px] text-[#60758a] text-sm font-normal leading-normal">$9,000</td>
+                      <td class="table-50925e9e-c046-4081-91dc-f4b0213dec1a-column-600 h-[72px] px-4 py-2 w-[400px] text-[#60758a] text-sm font-normal leading-normal">$175.00</td>
+                      <td class="table-50925e9e-c046-4081-91dc-f4b0213dec1a-column-720 h-[72px] px-4 py-2 w-[400px] text-[#60758a] text-sm font-normal leading-normal">
+                        +$250 (+2.8%)
+                      </td>
+                      <td class="table-50925e9e-c046-4081-91dc-f4b0213dec1a-column-840 h-[72px] px-4 py-2 w-[400px] text-[#60758a] text-sm font-normal leading-normal">+0.8%</td>
+                      <td class="table-50925e9e-c046-4081-91dc-f4b0213dec1a-column-960 h-[72px] px-4 py-2 w-60 text-sm font-normal leading-normal">
+                        <button
+                          class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-8 px-4 bg-[#f0f2f5] text-[#111418] text-sm font-medium leading-normal w-full"
+                        >
+                          <span class="truncate">No Rec</span>
+                        </button>
+                      </td>
+                      <td class="table-50925e9e-c046-4081-91dc-f4b0213dec1a-column-1080 h-[72px] px-4 py-2 w-60 text-[#60758a] text-sm font-bold leading-normal tracking-[0.015em]">
+                        More Details
+                      </td>
+                    </tr>
+                    <tr class="border-t border-t-[#dbe0e6]">
+                      <td class="table-50925e9e-c046-4081-91dc-f4b0213dec1a-column-120 h-[72px] px-4 py-2 w-[400px] text-[#111418] text-sm font-normal leading-normal">FoodCo</td>
+                      <td class="table-50925e9e-c046-4081-91dc-f4b0213dec1a-column-240 h-[72px] px-4 py-2 w-[400px] text-[#60758a] text-sm font-normal leading-normal">$60.75</td>
+                      <td class="table-50925e9e-c046-4081-91dc-f4b0213dec1a-column-360 h-[72px] px-4 py-2 w-[400px] text-[#60758a] text-sm font-normal leading-normal">150</td>
+                      <td class="table-50925e9e-c046-4081-91dc-f4b0213dec1a-column-480 h-[72px] px-4 py-2 w-[400px] text-[#60758a] text-sm font-normal leading-normal">
+                        $9,112.50
+                      </td>
+                      <td class="table-50925e9e-c046-4081-91dc-f4b0213dec1a-column-600 h-[72px] px-4 py-2 w-[400px] text-[#60758a] text-sm font-normal leading-normal">$58.00</td>
+                      <td class="table-50925e9e-c046-4081-91dc-f4b0213dec1a-column-720 h-[72px] px-4 py-2 w-[400px] text-[#60758a] text-sm font-normal leading-normal">
+                        +$412.50 (+4.5%)
+                      </td>
+                      <td class="table-50925e9e-c046-4081-91dc-f4b0213dec1a-column-840 h-[72px] px-4 py-2 w-[400px] text-[#60758a] text-sm font-normal leading-normal">+1.4%</td>
+                      <td class="table-50925e9e-c046-4081-91dc-f4b0213dec1a-column-960 h-[72px] px-4 py-2 w-60 text-sm font-normal leading-normal">
+                        <button
+                          class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-8 px-4 bg-[#f0f2f5] text-[#111418] text-sm font-medium leading-normal w-full"
+                        >
+                          <span class="truncate">Aligned</span>
+                        </button>
+                      </td>
+                      <td class="table-50925e9e-c046-4081-91dc-f4b0213dec1a-column-1080 h-[72px] px-4 py-2 w-60 text-[#60758a] text-sm font-bold leading-normal tracking-[0.015em]">
+                        More Details
+                      </td>
+                    </tr>
+                    <tr class="border-t border-t-[#dbe0e6]">
+                      <td class="table-50925e9e-c046-4081-91dc-f4b0213dec1a-column-120 h-[72px] px-4 py-2 w-[400px] text-[#111418] text-sm font-normal leading-normal">TravelCo</td>
+                      <td class="table-50925e9e-c046-4081-91dc-f4b0213dec1a-column-240 h-[72px] px-4 py-2 w-[400px] text-[#60758a] text-sm font-normal leading-normal">$40.50</td>
+                      <td class="table-50925e9e-c046-4081-91dc-f4b0213dec1a-column-360 h-[72px] px-4 py-2 w-[400px] text-[#60758a] text-sm font-normal leading-normal">250</td>
+                      <td class="table-50925e9e-c046-4081-91dc-f4b0213dec1a-column-480 h-[72px] px-4 py-2 w-[400px] text-[#60758a] text-sm font-normal leading-normal">$10,125</td>
+                      <td class="table-50925e9e-c046-4081-91dc-f4b0213dec1a-column-600 h-[72px] px-4 py-2 w-[400px] text-[#60758a] text-sm font-normal leading-normal">$38.00</td>
+                      <td class="table-50925e9e-c046-4081-91dc-f4b0213dec1a-column-720 h-[72px] px-4 py-2 w-[400px] text-[#60758a] text-sm font-normal leading-normal">
+                        +$625 (+6.2%)
+                      </td>
+                      <td class="table-50925e9e-c046-4081-91dc-f4b0213dec1a-column-840 h-[72px] px-4 py-2 w-[400px] text-[#60758a] text-sm font-normal leading-normal">+2.5%</td>
+                      <td class="table-50925e9e-c046-4081-91dc-f4b0213dec1a-column-960 h-[72px] px-4 py-2 w-60 text-sm font-normal leading-normal">
+                        <button
+                          class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-8 px-4 bg-[#f0f2f5] text-[#111418] text-sm font-medium leading-normal w-full"
+                        >
+                          <span class="truncate">Aligned</span>
+                        </button>
+                      </td>
+                      <td class="table-50925e9e-c046-4081-91dc-f4b0213dec1a-column-1080 h-[72px] px-4 py-2 w-60 text-[#60758a] text-sm font-bold leading-normal tracking-[0.015em]">
+                        More Details
+                      </td>
+                    </tr>
+                    <tr class="border-t border-t-[#dbe0e6]">
+                      <td class="table-50925e9e-c046-4081-91dc-f4b0213dec1a-column-120 h-[72px] px-4 py-2 w-[400px] text-[#111418] text-sm font-normal leading-normal">MediaCo</td>
+                      <td class="table-50925e9e-c046-4081-91dc-f4b0213dec1a-column-240 h-[72px] px-4 py-2 w-[400px] text-[#60758a] text-sm font-normal leading-normal">$100.25</td>
+                      <td class="table-50925e9e-c046-4081-91dc-f4b0213dec1a-column-360 h-[72px] px-4 py-2 w-[400px] text-[#60758a] text-sm font-normal leading-normal">100</td>
+                      <td class="table-50925e9e-c046-4081-91dc-f4b0213dec1a-column-480 h-[72px] px-4 py-2 w-[400px] text-[#60758a] text-sm font-normal leading-normal">$10,025</td>
+                      <td class="table-50925e9e-c046-4081-91dc-f4b0213dec1a-column-600 h-[72px] px-4 py-2 w-[400px] text-[#60758a] text-sm font-normal leading-normal">$95.00</td>
+                      <td class="table-50925e9e-c046-4081-91dc-f4b0213dec1a-column-720 h-[72px] px-4 py-2 w-[400px] text-[#60758a] text-sm font-normal leading-normal">
+                        +$525 (+5.5%)
+                      </td>
+                      <td class="table-50925e9e-c046-4081-91dc-f4b0213dec1a-column-840 h-[72px] px-4 py-2 w-[400px] text-[#60758a] text-sm font-normal leading-normal">+2.2%</td>
+                      <td class="table-50925e9e-c046-4081-91dc-f4b0213dec1a-column-960 h-[72px] px-4 py-2 w-60 text-sm font-normal leading-normal">
+                        <button
+                          class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-8 px-4 bg-[#f0f2f5] text-[#111418] text-sm font-medium leading-normal w-full"
+                        >
+                          <span class="truncate">Aligned</span>
+                        </button>
+                      </td>
+                      <td class="table-50925e9e-c046-4081-91dc-f4b0213dec1a-column-1080 h-[72px] px-4 py-2 w-60 text-[#60758a] text-sm font-bold leading-normal tracking-[0.015em]">
+                        More Details
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <style>
+                          @container(max-width:120px){.table-50925e9e-c046-4081-91dc-f4b0213dec1a-column-120{display: none;}}
+                @container(max-width:240px){.table-50925e9e-c046-4081-91dc-f4b0213dec1a-column-240{display: none;}}
+                @container(max-width:360px){.table-50925e9e-c046-4081-91dc-f4b0213dec1a-column-360{display: none;}}
+                @container(max-width:480px){.table-50925e9e-c046-4081-91dc-f4b0213dec1a-column-480{display: none;}}
+                @container(max-width:600px){.table-50925e9e-c046-4081-91dc-f4b0213dec1a-column-600{display: none;}}
+                @container(max-width:720px){.table-50925e9e-c046-4081-91dc-f4b0213dec1a-column-720{display: none;}}
+                @container(max-width:840px){.table-50925e9e-c046-4081-91dc-f4b0213dec1a-column-840{display: none;}}
+                @container(max-width:960px){.table-50925e9e-c046-4081-91dc-f4b0213dec1a-column-960{display: none;}}
+                @container(max-width:1080px){.table-50925e9e-c046-4081-91dc-f4b0213dec1a-column-1080{display: none;}}
+              </style>
+            </div>
+            <div class="flex items-center justify-center p-4">
+              <a href="#" class="flex size-10 items-center justify-center">
+                <div class="text-[#111418]" data-icon="CaretLeft" data-size="18px" data-weight="regular">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18px" height="18px" fill="currentColor" viewBox="0 0 256 256">
+                    <path d="M165.66,202.34a8,8,0,0,1-11.32,11.32l-80-80a8,8,0,0,1,0-11.32l80-80a8,8,0,0,1,11.32,11.32L91.31,128Z"></path>
+                  </svg>
+                </div>
+              </a>
+              <a class="text-sm font-bold leading-normal tracking-[0.015em] flex size-10 items-center justify-center text-[#111418] rounded-full bg-[#f0f2f5]" href="#">1</a>
+              <a class="text-sm font-normal leading-normal flex size-10 items-center justify-center text-[#111418] rounded-full" href="#">2</a>
+              <a class="text-sm font-normal leading-normal flex size-10 items-center justify-center text-[#111418] rounded-full" href="#">3</a>
+              <a href="#" class="flex size-10 items-center justify-center">
+                <div class="text-[#111418]" data-icon="CaretRight" data-size="18px" data-weight="regular">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18px" height="18px" fill="currentColor" viewBox="0 0 256 256">
+                    <path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"></path>
+                  </svg>
+                </div>
+              </a>
+            </div>
+            <h3 class="text-[#111418] text-lg font-bold leading-tight tracking-[-0.015em] px-4 pb-2 pt-4">Allocation</h3>
+            <div class="flex flex-wrap gap-4 px-4 py-6">
+              <div class="flex min-w-72 flex-1 flex-col gap-2 rounded-xl border border-[#dbe0e6] p-6">
+                <p class="text-[#111418] text-base font-medium leading-normal">Portfolio Allocation</p>
+                <p class="text-[#111418] tracking-light text-[32px] font-bold leading-tight truncate">100%</p>
+                <div class="flex gap-1">
+                  <p class="text-[#60758a] text-base font-normal leading-normal">By Sector</p>
+                  <p class="text-[#078838] text-base font-medium leading-normal">+1.2%</p>
+                </div>
+                <div class="grid min-h-[180px] grid-flow-col gap-6 grid-rows-[1fr_auto] items-end justify-items-center px-3">
+                  <div class="border-[#60758a] bg-[#f0f2f5] border-t-2 w-full" style="height: 50%;"></div>
+                  <p class="text-[#60758a] text-[13px] font-bold leading-normal tracking-[0.015em]">Tech</p>
+                  <div class="border-[#60758a] bg-[#f0f2f5] border-t-2 w-full" style="height: 20%;"></div>
+                  <p class="text-[#60758a] text-[13px] font-bold leading-normal tracking-[0.015em]">Energy</p>
+                  <div class="border-[#60758a] bg-[#f0f2f5] border-t-2 w-full" style="height: 100%;"></div>
+                  <p class="text-[#60758a] text-[13px] font-bold leading-normal tracking-[0.015em]">Healthcare</p>
+                  <div class="border-[#60758a] bg-[#f0f2f5] border-t-2 w-full" style="height: 100%;"></div>
+                  <p class="text-[#60758a] text-[13px] font-bold leading-normal tracking-[0.015em]">Finance</p>
+                  <div class="border-[#60758a] bg-[#f0f2f5] border-t-2 w-full" style="height: 20%;"></div>
+                  <p class="text-[#60758a] text-[13px] font-bold leading-normal tracking-[0.015em]">Retail</p>
+                  <div class="border-[#60758a] bg-[#f0f2f5] border-t-2 w-full" style="height: 20%;"></div>
+                  <p class="text-[#60758a] text-[13px] font-bold leading-normal tracking-[0.015em]">Pharma</p>
+                  <div class="border-[#60758a] bg-[#f0f2f5] border-t-2 w-full" style="height: 80%;"></div>
+                  <p class="text-[#60758a] text-[13px] font-bold leading-normal tracking-[0.015em]">Auto</p>
+                </div>
+              </div>
+            </div>
+            <h3 class="text-[#111418] text-lg font-bold leading-tight tracking-[-0.015em] px-4 pb-2 pt-4">Performance Over Time</h3>
+            <div class="flex flex-wrap gap-4 px-4 py-6">
+              <div class="flex min-w-72 flex-1 flex-col gap-2 rounded-xl border border-[#dbe0e6] p-6">
+                <p class="text-[#111418] text-base font-medium leading-normal">Portfolio Value Growth</p>
+                <p class="text-[#111418] tracking-light text-[32px] font-bold leading-tight truncate">+15%</p>
+                <div class="flex gap-1">
+                  <p class="text-[#60758a] text-base font-normal leading-normal">Last 12 Months</p>
+                  <p class="text-[#078838] text-base font-medium leading-normal">+2.5%</p>
+                </div>
+                <div class="flex min-h-[180px] flex-1 flex-col gap-8 py-4">
+                  <svg width="100%" height="148" viewBox="-3 0 478 150" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+                    <path
+                      d="M0 109C18.1538 109 18.1538 21 36.3077 21C54.4615 21 54.4615 41 72.6154 41C90.7692 41 90.7692 93 108.923 93C127.077 93 127.077 33 145.231 33C163.385 33 163.385 101 181.538 101C199.692 101 199.692 61 217.846 61C236 61 236 45 254.154 45C272.308 45 272.308 121 290.462 121C308.615 121 308.615 149 326.769 149C344.923 149 344.923 1 363.077 1C381.231 1 381.231 81 399.385 81C417.538 81 417.538 129 435.692 129C453.846 129 453.846 25 472 25V149H326.769H0V109Z"
+                      fill="url(#paint0_linear_1131_5935)"
+                    ></path>
+                    <path
+                      d="M0 109C18.1538 109 18.1538 21 36.3077 21C54.4615 21 54.4615 41 72.6154 41C90.7692 41 90.7692 93 108.923 93C127.077 93 127.077 33 145.231 33C163.385 33 163.385 101 181.538 101C199.692 101 199.692 61 217.846 61C236 61 236 45 254.154 45C272.308 45 272.308 121 290.462 121C308.615 121 308.615 149 326.769 149C344.923 149 344.923 1 363.077 1C381.231 1 381.231 81 399.385 81C417.538 81 417.538 129 435.692 129C453.846 129 453.846 25 472 25"
+                      stroke="#60758a"
+                      stroke-width="3"
+                      stroke-linecap="round"
+                    ></path>
+                    <defs>
+                      <linearGradient id="paint0_linear_1131_5935" x1="236" y1="1" x2="236" y2="149" gradientUnits="userSpaceOnUse">
+                        <stop stop-color="#f0f2f5"></stop>
+                        <stop offset="1" stop-color="#f0f2f5" stop-opacity="0"></stop>
+                      </linearGradient>
+                    </defs>
+                  </svg>
+                  <div class="flex justify-around">
+                    <p class="text-[#60758a] text-[13px] font-bold leading-normal tracking-[0.015em]">Jan</p>
+                    <p class="text-[#60758a] text-[13px] font-bold leading-normal tracking-[0.015em]">Feb</p>
+                    <p class="text-[#60758a] text-[13px] font-bold leading-normal tracking-[0.015em]">Mar</p>
+                    <p class="text-[#60758a] text-[13px] font-bold leading-normal tracking-[0.015em]">Apr</p>
+                    <p class="text-[#60758a] text-[13px] font-bold leading-normal tracking-[0.015em]">May</p>
+                    <p class="text-[#60758a] text-[13px] font-bold leading-normal tracking-[0.015em]">Jun</p>
+                    <p class="text-[#60758a] text-[13px] font-bold leading-normal tracking-[0.015em]">Jul</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <h3 class="text-[#111418] text-lg font-bold leading-tight tracking-[-0.015em] px-4 pb-2 pt-4">AI Insights</h3>
+            <div class="p-4">
+              <div class="flex items-stretch justify-between gap-4 rounded-xl">
+                <div class="flex flex-[2_2_0px] flex-col gap-4">
+                  <div class="flex flex-col gap-1">
+                    <p class="text-[#111418] text-base font-bold leading-tight">AI suggests rebalancing your portfolio</p>
+                    <p class="text-[#60758a] text-sm font-normal leading-normal">
+                      Our AI model indicates a potential risk in your current allocation. Consider diversifying your holdings to mitigate potential losses.
+                    </p>
+                  </div>
+                  <button
+                    class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-8 px-4 flex-row-reverse bg-[#f0f2f5] text-[#111418] pr-2 gap-1 text-sm font-medium leading-normal w-fit"
+                  >
+                    <div class="text-[#111418]" data-icon="ArrowRight" data-size="18px" data-weight="regular">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="18px" height="18px" fill="currentColor" viewBox="0 0 256 256">
+                        <path
+                          d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"
+                        ></path>
+                      </svg>
+                    </div>
+                    <span class="truncate">View Recommendations</span>
+                  </button>
+                </div>
+                <div
+                  class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-xl flex-1"
+                  style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDKQFvAj0ve4Kgmh6Rd2Z_EAamxQzJGpzKfeNcJyUx_Q9KEDahpGNW5zJ7bZBbfDKZ-WTIXVyu3UdUheoTKpimU6lEVkKEcts1jeLDUhCTCPDcB3KeDd6JmcODMVnlQNbSB76JJzz7-c03mPzS3_IVQ_ki05-ZuyVbvA-sX1CHDJVnNDlL-1MjzIldJEI9ZWjkSrDGU1Xm2rKtTAIoLnoo0qtnYuiLx7y4Tm58STc5psIgAjrjRLXtxf0za0PxmjEadQmKL-_I5EgaH");'
+                ></div>
+              </div>
+            </div>
+            <h3 class="text-[#111418] text-lg font-bold leading-tight tracking-[-0.015em] px-4 pb-2 pt-4">Recent Transactions</h3>
+            <div class="px-4 py-3 @container">
+              <div class="flex overflow-hidden rounded-xl border border-[#dbe0e6] bg-white">
+                <table class="flex-1">
+                  <thead>
+                    <tr class="bg-white">
+                      <th class="table-94bf5ede-2b6a-49d1-bc1a-2173e39f4eab-column-120 px-4 py-3 text-left text-[#111418] w-[400px] text-sm font-medium leading-normal">Type</th>
+                      <th class="table-94bf5ede-2b6a-49d1-bc1a-2173e39f4eab-column-240 px-4 py-3 text-left text-[#111418] w-[400px] text-sm font-medium leading-normal">Ticker</th>
+                      <th class="table-94bf5ede-2b6a-49d1-bc1a-2173e39f4eab-column-360 px-4 py-3 text-left text-[#111418] w-[400px] text-sm font-medium leading-normal">Date</th>
+                      <th class="table-94bf5ede-2b6a-49d1-bc1a-2173e39f4eab-column-480 px-4 py-3 text-left text-[#111418] w-[400px] text-sm font-medium leading-normal">
+                        Quantity
+                      </th>
+                      <th class="table-94bf5ede-2b6a-49d1-bc1a-2173e39f4eab-column-600 px-4 py-3 text-left text-[#111418] w-[400px] text-sm font-medium leading-normal">Price</th>
+                      <th class="table-94bf5ede-2b6a-49d1-bc1a-2173e39f4eab-column-720 px-4 py-3 text-left text-[#111418] w-[400px] text-sm font-medium leading-normal">
+                        Total Value
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr class="border-t border-t-[#dbe0e6]">
+                      <td class="table-94bf5ede-2b6a-49d1-bc1a-2173e39f4eab-column-120 h-[72px] px-4 py-2 w-[400px] text-[#60758a] text-sm font-normal leading-normal">Buy</td>
+                      <td class="table-94bf5ede-2b6a-49d1-bc1a-2173e39f4eab-column-240 h-[72px] px-4 py-2 w-[400px] text-[#60758a] text-sm font-normal leading-normal">TechCo</td>
+                      <td class="table-94bf5ede-2b6a-49d1-bc1a-2173e39f4eab-column-360 h-[72px] px-4 py-2 w-[400px] text-[#60758a] text-sm font-normal leading-normal">
+                        2023-11-15
+                      </td>
+                      <td class="table-94bf5ede-2b6a-49d1-bc1a-2173e39f4eab-column-480 h-[72px] px-4 py-2 w-[400px] text-[#60758a] text-sm font-normal leading-normal">100</td>
+                      <td class="table-94bf5ede-2b6a-49d1-bc1a-2173e39f4eab-column-600 h-[72px] px-4 py-2 w-[400px] text-[#60758a] text-sm font-normal leading-normal">$145.00</td>
+                      <td class="table-94bf5ede-2b6a-49d1-bc1a-2173e39f4eab-column-720 h-[72px] px-4 py-2 w-[400px] text-[#60758a] text-sm font-normal leading-normal">$14,500</td>
+                    </tr>
+                    <tr class="border-t border-t-[#dbe0e6]">
+                      <td class="table-94bf5ede-2b6a-49d1-bc1a-2173e39f4eab-column-120 h-[72px] px-4 py-2 w-[400px] text-[#60758a] text-sm font-normal leading-normal">Sell</td>
+                      <td class="table-94bf5ede-2b6a-49d1-bc1a-2173e39f4eab-column-240 h-[72px] px-4 py-2 w-[400px] text-[#60758a] text-sm font-normal leading-normal">BioCorp</td>
+                      <td class="table-94bf5ede-2b6a-49d1-bc1a-2173e39f4eab-column-360 h-[72px] px-4 py-2 w-[400px] text-[#60758a] text-sm font-normal leading-normal">
+                        2023-11-10
+                      </td>
+                      <td class="table-94bf5ede-2b6a-49d1-bc1a-2173e39f4eab-column-480 h-[72px] px-4 py-2 w-[400px] text-[#60758a] text-sm font-normal leading-normal">50</td>
+                      <td class="table-94bf5ede-2b6a-49d1-bc1a-2173e39f4eab-column-600 h-[72px] px-4 py-2 w-[400px] text-[#60758a] text-sm font-normal leading-normal">$80.00</td>
+                      <td class="table-94bf5ede-2b6a-49d1-bc1a-2173e39f4eab-column-720 h-[72px] px-4 py-2 w-[400px] text-[#60758a] text-sm font-normal leading-normal">$4,000</td>
+                    </tr>
+                    <tr class="border-t border-t-[#dbe0e6]">
+                      <td class="table-94bf5ede-2b6a-49d1-bc1a-2173e39f4eab-column-120 h-[72px] px-4 py-2 w-[400px] text-[#60758a] text-sm font-normal leading-normal">Buy</td>
+                      <td class="table-94bf5ede-2b6a-49d1-bc1a-2173e39f4eab-column-240 h-[72px] px-4 py-2 w-[400px] text-[#60758a] text-sm font-normal leading-normal">EnergyCo</td>
+                      <td class="table-94bf5ede-2b6a-49d1-bc1a-2173e39f4eab-column-360 h-[72px] px-4 py-2 w-[400px] text-[#60758a] text-sm font-normal leading-normal">
+                        2023-11-05
+                      </td>
+                      <td class="table-94bf5ede-2b6a-49d1-bc1a-2173e39f4eab-column-480 h-[72px] px-4 py-2 w-[400px] text-[#60758a] text-sm font-normal leading-normal">25</td>
+                      <td class="table-94bf5ede-2b6a-49d1-bc1a-2173e39f4eab-column-600 h-[72px] px-4 py-2 w-[400px] text-[#60758a] text-sm font-normal leading-normal">$195.00</td>
+                      <td class="table-94bf5ede-2b6a-49d1-bc1a-2173e39f4eab-column-720 h-[72px] px-4 py-2 w-[400px] text-[#60758a] text-sm font-normal leading-normal">$4,875</td>
+                    </tr>
+                    <tr class="border-t border-t-[#dbe0e6]">
+                      <td class="table-94bf5ede-2b6a-49d1-bc1a-2173e39f4eab-column-120 h-[72px] px-4 py-2 w-[400px] text-[#60758a] text-sm font-normal leading-normal">Buy</td>
+                      <td class="table-94bf5ede-2b6a-49d1-bc1a-2173e39f4eab-column-240 h-[72px] px-4 py-2 w-[400px] text-[#60758a] text-sm font-normal leading-normal">FinServ</td>
+                      <td class="table-94bf5ede-2b6a-49d1-bc1a-2173e39f4eab-column-360 h-[72px] px-4 py-2 w-[400px] text-[#60758a] text-sm font-normal leading-normal">
+                        2023-10-20
+                      </td>
+                      <td class="table-94bf5ede-2b6a-49d1-bc1a-2173e39f4eab-column-480 h-[72px] px-4 py-2 w-[400px] text-[#60758a] text-sm font-normal leading-normal">75</td>
+                      <td class="table-94bf5ede-2b6a-49d1-bc1a-2173e39f4eab-column-600 h-[72px] px-4 py-2 w-[400px] text-[#60758a] text-sm font-normal leading-normal">$115.00</td>
+                      <td class="table-94bf5ede-2b6a-49d1-bc1a-2173e39f4eab-column-720 h-[72px] px-4 py-2 w-[400px] text-[#60758a] text-sm font-normal leading-normal">$8,625</td>
+                    </tr>
+                    <tr class="border-t border-t-[#dbe0e6]">
+                      <td class="table-94bf5ede-2b6a-49d1-bc1a-2173e39f4eab-column-120 h-[72px] px-4 py-2 w-[400px] text-[#60758a] text-sm font-normal leading-normal">Buy</td>
+                      <td class="table-94bf5ede-2b6a-49d1-bc1a-2173e39f4eab-column-240 h-[72px] px-4 py-2 w-[400px] text-[#60758a] text-sm font-normal leading-normal">RetailCo</td>
+                      <td class="table-94bf5ede-2b6a-49d1-bc1a-2173e39f4eab-column-360 h-[72px] px-4 py-2 w-[400px] text-[#60758a] text-sm font-normal leading-normal">
+                        2023-10-15
+                      </td>
+                      <td class="table-94bf5ede-2b6a-49d1-bc1a-2173e39f4eab-column-480 h-[72px] px-4 py-2 w-[400px] text-[#60758a] text-sm font-normal leading-normal">200</td>
+                      <td class="table-94bf5ede-2b6a-49d1-bc1a-2173e39f4eab-column-600 h-[72px] px-4 py-2 w-[400px] text-[#60758a] text-sm font-normal leading-normal">$48.00</td>
+                      <td class="table-94bf5ede-2b6a-49d1-bc1a-2173e39f4eab-column-720 h-[72px] px-4 py-2 w-[400px] text-[#60758a] text-sm font-normal leading-normal">$9,600</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <style>
+                          @container(max-width:120px){.table-94bf5ede-2b6a-49d1-bc1a-2173e39f4eab-column-120{display: none;}}
+                @container(max-width:240px){.table-94bf5ede-2b6a-49d1-bc1a-2173e39f4eab-column-240{display: none;}}
+                @container(max-width:360px){.table-94bf5ede-2b6a-49d1-bc1a-2173e39f4eab-column-360{display: none;}}
+                @container(max-width:480px){.table-94bf5ede-2b6a-49d1-bc1a-2173e39f4eab-column-480{display: none;}}
+                @container(max-width:600px){.table-94bf5ede-2b6a-49d1-bc1a-2173e39f4eab-column-600{display: none;}}
+                @container(max-width:720px){.table-94bf5ede-2b6a-49d1-bc1a-2173e39f4eab-column-720{display: none;}}
+              </style>
+            </div>
+            <div class="flex px-4 py-3 justify-start">
+              <button
+                class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 px-4 bg-[#f0f2f5] text-[#111418] text-sm font-bold leading-normal tracking-[0.015em]"
+              >
+                <span class="truncate">View Full History</span>
+              </button>
+            </div>
+            <h3 class="text-[#111418] text-lg font-bold leading-tight tracking-[-0.015em] px-4 pb-2 pt-4">News</h3>
+            <div class="p-4">
+              <div class="flex items-stretch justify-between gap-4 rounded-xl">
+                <div class="flex flex-[2_2_0px] flex-col gap-4">
+                  <div class="flex flex-col gap-1">
+                    <p class="text-[#111418] text-base font-bold leading-tight">TechCo Announces Record Profits</p>
+                    <p class="text-[#60758a] text-sm font-normal leading-normal">
+                      TechCo reported a significant increase in quarterly earnings, exceeding market expectations. The company's stock price surged following the announcement.
+                    </p>
+                  </div>
+                  <button
+                    class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-8 px-4 flex-row-reverse bg-[#f0f2f5] text-[#111418] pr-2 gap-1 text-sm font-medium leading-normal w-fit"
+                  >
+                    <div class="text-[#111418]" data-icon="ArrowRight" data-size="18px" data-weight="regular">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="18px" height="18px" fill="currentColor" viewBox="0 0 256 256">
+                        <path
+                          d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"
+                        ></path>
+                      </svg>
+                    </div>
+                    <span class="truncate">Read More</span>
+                  </button>
+                </div>
+                <div
+                  class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-xl flex-1"
+                  style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBjgF09XDkK3ZSZI1cArOJk88WraiZBVluY8lFaEiXHa_Mb8K2_FC3QmVmPGel2UE3JoZtUNRvAeEb5_7DBb6tfGQpk5GNP8d_-I-y7AJKounSrR4eI1QB4fqTJbm_tIuHZdyF_HAeXAmdsBqM-1mTqTi1aBo8XB_V7TcTWYuAsnMUkXCOrKosJjLDck1ImvhUR-eMfoneKkMhbIWLeboxk_oxCepv4UtLgZBpFFjJz4Rbtk-L1_RXt9pIiuGwyNinv_Tah7x1890Pq");'
+                ></div>
+              </div>
+            </div>
+            <div class="p-4">
+              <div class="flex items-stretch justify-between gap-4 rounded-xl">
+                <div class="flex flex-[2_2_0px] flex-col gap-4">
+                  <div class="flex flex-col gap-1">
+                    <p class="text-[#111418] text-base font-bold leading-tight">BioCorp Faces Regulatory Challenges</p>
+                    <p class="text-[#60758a] text-sm font-normal leading-normal">
+                      BioCorp is navigating regulatory hurdles for its new drug, causing uncertainty among investors. The stock experienced a downturn in response to the news.
+                    </p>
+                  </div>
+                  <button
+                    class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-8 px-4 flex-row-reverse bg-[#f0f2f5] text-[#111418] pr-2 gap-1 text-sm font-medium leading-normal w-fit"
+                  >
+                    <div class="text-[#111418]" data-icon="ArrowRight" data-size="18px" data-weight="regular">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="18px" height="18px" fill="currentColor" viewBox="0 0 256 256">
+                        <path
+                          d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"
+                        ></path>
+                      </svg>
+                    </div>
+                    <span class="truncate">Read More</span>
+                  </button>
+                </div>
+                <div
+                  class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-xl flex-1"
+                  style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCEVxx1T3x81dRZBeksQWQbj8-WD3aHUnSnSwRWCsSrRVKeaHfGBLSZBmI3dXbRaWzug01UsArYByi0nzNfG-vjj8o711J6DFU7neqdrIWcb4ot0ZIDurwznP1Jr_4a6R0Irm5qcvy-OmCXCwKNmFCzyWWyYIhTHEYm3H37ZjD1rAoOM3NCFFyE4dm640KsuDHz9iAK5ZMXMFi66cZjykqPDeybEEqLm78QQ8qZIS-GHAnSePcE-Cbyw6TpzRCvLaVEjhXFZ3Mz9nFE");'
+                ></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

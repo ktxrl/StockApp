@@ -1,0 +1,211 @@
+<html>
+  <head>
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="" />
+    <link
+      rel="stylesheet"
+      as="style"
+      onload="this.rel='stylesheet'"
+      href="https://fonts.googleapis.com/css2?display=swap&amp;family=Inter%3Awght%40400%3B500%3B700%3B900&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900"
+    />
+
+    <title>Stitch Design</title>
+    <link rel="icon" type="image/x-icon" href="data:image/x-icon;base64," />
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  </head>
+  <body>
+    <div class="relative flex size-full min-h-screen flex-col bg-white group/design-root overflow-x-hidden" style='font-family: Inter, "Noto Sans", sans-serif;'>
+      <div class="layout-container flex h-full grow flex-col">
+        <header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#f0f2f5] px-10 py-3">
+          <div class="flex items-center gap-4 text-[#111418]">
+            <div class="size-4">
+              <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M44 4H30.6666V17.3334H17.3334V30.6666H4V44H44V4Z" fill="currentColor"></path></svg>
+            </div>
+            <h2 class="text-[#111418] text-lg font-bold leading-tight tracking-[-0.015em]">TradeWise</h2>
+          </div>
+          <div class="flex flex-1 justify-end gap-8">
+            <div class="flex items-center gap-9">
+              <a class="text-[#111418] text-sm font-medium leading-normal" href="#">Dashboard</a>
+              <a class="text-[#111418] text-sm font-medium leading-normal" href="#">Portfolio</a>
+              <a class="text-[#111418] text-sm font-medium leading-normal" href="#">News</a>
+            </div>
+            <button
+              class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 bg-[#f0f2f5] text-[#111418] gap-2 text-sm font-bold leading-normal tracking-[0.015em] min-w-0 px-2.5"
+            >
+              <div class="text-[#111418]" data-icon="Bell" data-size="20px" data-weight="regular">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill="currentColor" viewBox="0 0 256 256">
+                  <path
+                    d="M221.8,175.94C216.25,166.38,208,139.33,208,104a80,80,0,1,0-160,0c0,35.34-8.26,62.38-13.81,71.94A16,16,0,0,0,48,200H88.81a40,40,0,0,0,78.38,0H208a16,16,0,0,0,13.8-24.06ZM128,216a24,24,0,0,1-22.62-16h45.24A24,24,0,0,1,128,216ZM48,184c7.7-13.24,16-43.92,16-80a64,64,0,1,1,128,0c0,36.05,8.28,66.73,16,80Z"
+                  ></path>
+                </svg>
+              </div>
+            </button>
+            <div
+              class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10"
+              style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuB3AEggyOcRU25zbzITXWTrOnZ2kyngkOGkXKpCi7CBatTd2VkGxAirZ1koluma8O0HP05hXDb2Oby1Zscfn3KJhi-iD3CGJvzx2FXtWNEi36djnRYCop5TSyWz_CIq13TdUMFt2sZABkMksaT8-tDBaV5iFbyzix2IQ4FFn_o69i3Ur1ncFyoazoKAQNDDmzXRHHRVLs2y4CoKlbV_d9SC7Ie59aW9FzIyclOrukIkdhivHnis6lSNJsuPFVAf8gjGZXgEqQTOmh7x");'
+            ></div>
+          </div>
+        </header>
+        <div class="px-40 flex flex-1 justify-center py-5">
+          <div class="layout-content-container flex flex-col max-w-[960px] flex-1">
+            <div class="px-4 py-3">
+              <label class="flex flex-col min-w-40 h-12 w-full">
+                <div class="flex w-full flex-1 items-stretch rounded-xl h-full">
+                  <div
+                    class="text-[#60758a] flex border-none bg-[#f0f2f5] items-center justify-center pl-4 rounded-l-xl border-r-0"
+                    data-icon="MagnifyingGlass"
+                    data-size="24px"
+                    data-weight="regular"
+                  >
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
+                      <path
+                        d="M229.66,218.34l-50.07-50.06a88.11,88.11,0,1,0-11.31,11.31l50.06,50.07a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z"
+                      ></path>
+                    </svg>
+                  </div>
+                  <input
+                    placeholder="Search stocks, companies, or topics..."
+                    class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-xl text-[#111418] focus:outline-0 focus:ring-0 border-none bg-[#f0f2f5] focus:border-none h-full placeholder:text-[#60758a] px-4 rounded-l-none border-l-0 pl-2 text-base font-normal leading-normal"
+                    value=""
+                  />
+                </div>
+              </label>
+            </div>
+            <div class="flex gap-3 p-3 flex-wrap pr-4">
+              <div class="flex h-8 shrink-0 items-center justify-center gap-x-2 rounded-xl bg-[#f0f2f5] pl-4 pr-4">
+                <p class="text-[#111418] text-sm font-medium leading-normal">All News</p>
+              </div>
+              <div class="flex h-8 shrink-0 items-center justify-center gap-x-2 rounded-xl bg-[#f0f2f5] pl-4 pr-4">
+                <p class="text-[#111418] text-sm font-medium leading-normal">My Portfolio</p>
+              </div>
+              <div class="flex h-8 shrink-0 items-center justify-center gap-x-2 rounded-xl bg-[#f0f2f5] pl-4 pr-4">
+                <p class="text-[#111418] text-sm font-medium leading-normal">AI Picks</p>
+              </div>
+              <div class="flex h-8 shrink-0 items-center justify-center gap-x-2 rounded-xl bg-[#f0f2f5] pl-4 pr-4">
+                <p class="text-[#111418] text-sm font-medium leading-normal">Trending Markets</p>
+              </div>
+            </div>
+            <div class="flex gap-3 p-3 flex-wrap pr-4">
+              <button class="flex h-8 shrink-0 items-center justify-center gap-x-2 rounded-xl bg-[#f0f2f5] pl-4 pr-2">
+                <p class="text-[#111418] text-sm font-medium leading-normal">Today</p>
+                <div class="text-[#111418]" data-icon="CaretDown" data-size="20px" data-weight="regular">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill="currentColor" viewBox="0 0 256 256">
+                    <path d="M213.66,101.66l-80,80a8,8,0,0,1-11.32,0l-80-80A8,8,0,0,1,53.66,90.34L128,164.69l74.34-74.35a8,8,0,0,1,11.32,11.32Z"></path>
+                  </svg>
+                </div>
+              </button>
+            </div>
+            <div class="p-4">
+              <div class="flex items-stretch justify-between gap-4 rounded-xl">
+                <div class="flex flex-[2_2_0px] flex-col gap-4">
+                  <div class="flex flex-col gap-1">
+                    <p class="text-[#60758a] text-sm font-normal leading-normal">Featured</p>
+                    <p class="text-[#111418] text-base font-bold leading-tight">Tech Giant Unveils New AI Chip, Stock Soars</p>
+                    <p class="text-[#60758a] text-sm font-normal leading-normal">
+                      The company's latest AI chip promises to revolutionize the industry, leading to a surge in its stock price. Investors are optimistic about the company's
+                      future prospects.
+                    </p>
+                  </div>
+                  <button
+                    class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-8 px-4 flex-row-reverse bg-[#f0f2f5] text-[#111418] text-sm font-medium leading-normal w-fit"
+                  >
+                    <span class="truncate">Read Full Article</span>
+                  </button>
+                </div>
+                <div
+                  class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-xl flex-1"
+                  style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuA3xOw4fylusF93D8eaNzzrYbhISn7VDNQrZUIyPD98zGGu8LJtYSkihobm8O-HOv-SNulnbpT1yY6uCA4c0-mWOOEafm-gdIgq_cizK_JJUFaTw5PEz8Yki5JA2M7ln2aJGUPAyUdh0mCq5rR8oXt6f7qtLzoUU-o6-iovtq-S8DRrXkM2jIKAO3N-oFu5Zj5ISqTOURbpqtDqrf2UKJiLrb6TD1DgOLIyNmgRoy65sBwTZF5AGBQpCT6jPjp6Md9716P7NYKv255f");'
+                ></div>
+              </div>
+            </div>
+            <h2 class="text-[#111418] text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">Latest News</h2>
+            <div class="p-4">
+              <div class="flex items-stretch justify-between gap-4 rounded-xl">
+                <div class="flex flex-[2_2_0px] flex-col gap-4">
+                  <div class="flex flex-col gap-1">
+                    <p class="text-[#111418] text-base font-bold leading-tight">Market Volatility Continues Amidst Economic Uncertainty</p>
+                    <p class="text-[#60758a] text-sm font-normal leading-normal">
+                      Global markets remain volatile as investors grapple with economic uncertainty. Experts advise caution and diversification.
+                    </p>
+                  </div>
+                  <button
+                    class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-8 px-4 flex-row-reverse bg-[#f0f2f5] text-[#111418] text-sm font-medium leading-normal w-fit"
+                  >
+                    <span class="truncate">View AI Opinion</span>
+                  </button>
+                </div>
+                <div
+                  class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-xl flex-1"
+                  style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAEeqGR93p2quEtpYJnw1ancdDS-W8B50JPIFiNk1AtQBtTXMtQ4n4nXQ5Z3Y5cVYM1onx0kveGlQMOv4L8PEw0ZmvHRKrQ4blxAppd9MXFdek4lwvV79WqLaSaeO1Ho7cx6megMDOxihb4x4uTMpaCU5aSNxRqfLE4aDiF9xIU1yQDokT4wJNSYZe6N42AjoNxPv4Xo5hEPsc6JLA5lviQ0d_DhjiA1uOAVYimk7OOZqpDZw5g9C90O4F3JXZuMUOmCFmEBgocmlav");'
+                ></div>
+              </div>
+            </div>
+            <div class="p-4">
+              <div class="flex items-stretch justify-between gap-4 rounded-xl">
+                <div class="flex flex-[2_2_0px] flex-col gap-4">
+                  <div class="flex flex-col gap-1">
+                    <p class="text-[#111418] text-base font-bold leading-tight">Renewable Energy Stocks Surge on New Policy Initiatives</p>
+                    <p class="text-[#60758a] text-sm font-normal leading-normal">
+                      Government initiatives supporting renewable energy have led to a significant rise in related stock values. Analysts predict continued growth in the sector.
+                    </p>
+                  </div>
+                  <button
+                    class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-8 px-4 flex-row-reverse bg-[#f0f2f5] text-[#111418] text-sm font-medium leading-normal w-fit"
+                  >
+                    <span class="truncate">View AI Opinion</span>
+                  </button>
+                </div>
+                <div
+                  class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-xl flex-1"
+                  style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBd6r8uVSfjU7LQEe8kYBV33wE5O2x8otyGDHYKyYXj3rdKjWyc3gcVNUAgy6FiOVeVZ9yzaCQksZjAJlmr2pYvvz48-X7Y5hq1c4bFMeVUYZBzz_qhgOS1G8fboiIOp3m9vfK3qAnEjH2VnrYl3Ra9uZ8DMOLipHzLlDGB19zTy8JimJSlGS4drNf6C_ZltRqVcTcuGeSvp4b7U6xWZdbuLNDxLFcNfqgH7-Wh0-5uMOAK1QiXDEJ4t7WZur-wB4K8Ts0guJDYmSUL");'
+                ></div>
+              </div>
+            </div>
+            <div class="p-4">
+              <div class="flex items-stretch justify-between gap-4 rounded-xl">
+                <div class="flex flex-[2_2_0px] flex-col gap-4">
+                  <div class="flex flex-col gap-1">
+                    <p class="text-[#111418] text-base font-bold leading-tight">Retail Sales Dip, Impacting Consumer Goods Companies</p>
+                    <p class="text-[#60758a] text-sm font-normal leading-normal">
+                      A recent dip in retail sales has negatively impacted the performance of consumer goods companies. Investors are closely monitoring the situation.
+                    </p>
+                  </div>
+                  <button
+                    class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-8 px-4 flex-row-reverse bg-[#f0f2f5] text-[#111418] text-sm font-medium leading-normal w-fit"
+                  >
+                    <span class="truncate">View AI Opinion</span>
+                  </button>
+                </div>
+                <div
+                  class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-xl flex-1"
+                  style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCkn-FsO-yj7PxIBZ7JsT1bCwMyD0IfXTBDCLxPFw0XNzXAfcrkPLku8DRVo5vNgn-RTIs7VmU4ncsBm5QYylhgQZAqCmBVln9ov9rA_9EgpOJ9YoFYTBchr6Pw4hOMpZCAgkxeV4fOAJaFR8P0pG1_QSPXMfEgV7ygBsH8kPC5JsXtc9ftLicHQFIZYBIyhRbr-TuNLor_WRZdIg3XImguMmt4YcWOZ_1NtOTpmcjzkJh3CqidHd9b1s7KPNUjWP3k9o4hQJjfyu9z");'
+                ></div>
+              </div>
+            </div>
+            <div class="flex items-center justify-center p-4">
+              <a href="#" class="flex size-10 items-center justify-center">
+                <div class="text-[#111418]" data-icon="CaretLeft" data-size="18px" data-weight="regular">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18px" height="18px" fill="currentColor" viewBox="0 0 256 256">
+                    <path d="M165.66,202.34a8,8,0,0,1-11.32,11.32l-80-80a8,8,0,0,1,0-11.32l80-80a8,8,0,0,1,11.32,11.32L91.31,128Z"></path>
+                  </svg>
+                </div>
+              </a>
+              <a class="text-sm font-bold leading-normal tracking-[0.015em] flex size-10 items-center justify-center text-[#111418] rounded-full bg-[#f0f2f5]" href="#">1</a>
+              <a class="text-sm font-normal leading-normal flex size-10 items-center justify-center text-[#111418] rounded-full" href="#">2</a>
+              <a class="text-sm font-normal leading-normal flex size-10 items-center justify-center text-[#111418] rounded-full" href="#">3</a>
+              <a class="text-sm font-normal leading-normal flex size-10 items-center justify-center text-[#111418] rounded-full" href="#">4</a>
+              <a class="text-sm font-normal leading-normal flex size-10 items-center justify-center text-[#111418] rounded-full" href="#">5</a>
+              <a href="#" class="flex size-10 items-center justify-center">
+                <div class="text-[#111418]" data-icon="CaretRight" data-size="18px" data-weight="regular">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18px" height="18px" fill="currentColor" viewBox="0 0 256 256">
+                    <path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"></path>
+                  </svg>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
