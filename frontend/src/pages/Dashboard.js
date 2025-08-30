@@ -1,5 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 import { AppContext } from '../context/AppContext';
 import AnalysisModal from '../components/AnalysisModal';
 import StockDetailModal from '../components/StockDetailModal';
@@ -31,18 +32,25 @@ const Dashboard = () => {
     setSelectedStock(null);
   };
 
-  const handleSearch = (e) => {
+  const handleSearch = async (e) => {
     if (e.key === 'Enter') {
       e.preventDefault();
-      // Use dummy data for now
-      const dummyStock = {
-        ticker: 'DUMMY',
-        name: 'Dummy Corp',
-        price: 100.00,
-        change: '+2.50',
-        marketCap: '1T'
-      };
-      handleOpenStockDetailModal(dummyStock);
+      const symbol = e.target.value;
+      try {
+        const response = await axios.get(`http://localhost:5000/api/stocks/${symbol}`);
+        const stockData = response.data['Global Quote'];
+        const formattedStock = {
+          ticker: stockData['01. symbol'],
+          name: '', // API doesn't provide name, can be fetched from another endpoint if needed
+          price: parseFloat(stockData['05. price']).toFixed(2),
+          change: parseFloat(stockData['09. change']).toFixed(2),
+          marketCap: 'N/A' // API doesn't provide market cap in this endpoint
+        };
+        handleOpenStockDetailModal(formattedStock);
+      } catch (error) {
+        console.error('Error fetching stock data:', error);
+        // Handle error, e.g., show a notification to the user
+      }
     }
   };
 
