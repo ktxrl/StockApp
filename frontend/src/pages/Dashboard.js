@@ -1,9 +1,11 @@
 import React, { useContext, useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { AppContext } from '../context/AppContext';
 import StockAnalysisModal from '../components/StockAnalysisModal';
 
 const Dashboard = () => {
   const { portfolio, recommendations, searchTerm, setSearchTerm } = useContext(AppContext);
+  const navigate = useNavigate();
   const [selectedStock, setSelectedStock] = useState(null);
   const [recommendation, setRecommendation] = useState(null);
   const [searchResults, setSearchResults] = useState([]);
@@ -245,6 +247,7 @@ const Dashboard = () => {
         <div className="flex px-4 py-3 justify-end">
           <button
             className="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 px-4 bg-[#f0f2f5] text-[#111418] text-sm font-bold leading-normal tracking-[0.015em]"
+            onClick={() => navigate('/portfolio')}
           >
             <span className="truncate">View Full Portfolio</span>
           </button>
