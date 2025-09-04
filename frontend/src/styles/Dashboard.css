@@ -1,0 +1,105 @@
+.dashboard-container {
+  padding: 20px;
+  background-color: #f0f2f5;
+}
+
+.portfolio-summary {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.portfolio-summary h2 {
+  margin-top: 0;
+}
+
+.summary-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.summary-item span:first-child {
+  font-weight: bold;
+}
+
+.positive {
+  color: #28a745;
+}
+
+.negative {
+  color: #dc3545;
+}
+
+.dashboard-columns {
+  display: flex;
+  gap: 20px;
+}
+
+.left-column, .right-column {
+  flex: 1;
+}
+
+.portfolio-holdings, .recommendations, .news-feed {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.holdings-list, .recommendations-list, .news-list {
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.holding-item, .recommendation-item, .news-item {
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+.holding-item:last-child, .recommendation-item:last-child, .news-item:last-child {
+  border-bottom: none;
+}
+
+.holding-info, .recommendation-info {
+  display: flex;
+  justify-content: space-between;
+}
+
+.ticker {
+  font-weight: bold;
+}
+
+.shares, .action {
+  color: #6c757d;
+}
+
+.holding-value {
+  text-align: right;
+}
+
+.price {
+  font-weight: bold;
+}
+
+.change {
+  margin-left: 10px;
+}
+
+.news-title {
+  font-size: 1.1em;
+  margin-top: 0;
+}
+
+.news-source {
+  font-size: 0.9em;
+  color: #6c757d;
+  margin-bottom: 5px;
+}
+
+.news-summary {
+  margin-bottom: 0;
+}

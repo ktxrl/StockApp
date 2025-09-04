@@ -1,15 +1,11 @@
 import React, { useState } from 'react';
-import { NavLink } from 'react-router-dom';
-import AlertsDropdown from './AlertsDropdown';
+import { Link } from 'react-router-dom';
+import NotificationDropdown from './NotificationDropdown';
 import ProfileDropdown from './ProfileDropdown';
 
 const Header = () => {
-  const [alertsOpen, setAlertsOpen] = useState(false);
-  const [profileOpen, setProfileOpen] = useState(false);
-
-  const getLinkClassName = ({ isActive }) => {
-    return `text-sm font-medium leading-normal ${isActive ? 'text-blue-500' : 'text-[#111418]'}`;
-  };
+  const [showNotifications, setShowNotifications] = useState(false);
+  const [showProfile, setShowProfile] = useState(false);
 
   return (
     <header className="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#f0f2f5] px-10 py-3">
@@ -23,20 +19,20 @@ const Header = () => {
       </div>
       <div className="flex flex-1 justify-end gap-8">
         <div className="flex items-center gap-9">
-          <NavLink to="/" className={getLinkClassName}>
+          <Link to="/" className="text-[#111418] text-sm font-medium leading-normal">
             Dashboard
-          </NavLink>
-          <NavLink to="/portfolio" className={getLinkClassName}>
+          </Link>
+          <Link to="/portfolio" className="text-[#111418] text-sm font-medium leading-normal">
             Portfolio
-          </NavLink>
-          <NavLink to="/news" className={getLinkClassName}>
+          </Link>
+          <Link to="/news" className="text-[#111418] text-sm font-medium leading-normal">
             News
-          </NavLink>
+          </Link>
         </div>
         <div className="relative">
           <button
             className="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 bg-[#f0f2f5] text-[#111418] gap-2 text-sm font-bold leading-normal tracking-[0.015em] min-w-0 px-2.5"
-            onClick={() => setAlertsOpen(!alertsOpen)}
+            onClick={() => setShowNotifications(!showNotifications)}
           >
             <div className="text-[#111418]" data-icon="Bell" data-size="20px" data-weight="regular">
               <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill="currentColor" viewBox="0 0 256 256">
@@ -44,7 +40,7 @@ const Header = () => {
               </svg>
             </div>
           </button>
-          {alertsOpen && <AlertsDropdown />}
+          {showNotifications && <NotificationDropdown />}
         </div>
         <div className="relative">
           <div
@@ -53,9 +49,9 @@ const Header = () => {
               backgroundImage:
                 'url("https://lh3.googleusercontent.com/aida-public/AB6AXuCbf7cnkJXTfvA_sAH93JQT3rfu6zL8y8BD1aCYUk9Z90JxIiOk25NzrhaMBBoVnLTPSYN4CL8jeBHmxAht1URj93iF0C93gWH8SoRW44XVvfJFCiPYHCOo3lgh7sbOanKZjGly9jPv3Sk3raSYz3K_3qjIfA40N8m7GV7dJT02a70C17Kkqpck7Armghmg7FFkbzDlhayWPYo5TwafDhUQ5vZr6GsB4qRMHawjUPeV8IszaYdAqxkDPozzJ4Pfbsi-4JlSNEBse76V")',
             }}
-            onClick={() => setProfileOpen(!profileOpen)}
+            onClick={() => setShowProfile(!showProfile)}
           ></div>
-          {profileOpen && <ProfileDropdown />}
+          {showProfile && <ProfileDropdown />}
         </div>
       </div>
     </header>

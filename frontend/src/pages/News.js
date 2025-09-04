@@ -7,7 +7,7 @@ const News = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [analysis, setAnalysis] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
-  const articlesPerPage = 5;
+  const articlesPerPage = 3;
 
   const handleOpenModal = (analysis) => {
     setAnalysis(analysis);
@@ -60,28 +60,68 @@ const News = () => {
               className="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-8 px-3 bg-[#f0f2f5] text-[#111418] text-sm font-bold leading-normal tracking-[0.015em]"
               onClick={() => setNewsCategory('all')}
             >
-              <span className="truncate">All</span>
+              <span className="truncate">All News</span>
             </button>
             <button
               className="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-8 px-3 bg-white text-[#111418] text-sm font-medium leading-normal"
-              onClick={() => setNewsCategory('Technology')}
+              onClick={() => setNewsCategory('My Portfolio')}
             >
-              <span className="truncate">Technology</span>
+              <span className="truncate">My Portfolio</span>
             </button>
             <button
               className="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-8 px-3 bg-white text-[#111418] text-sm font-medium leading-normal"
-              onClick={() => setNewsCategory('Finance')}
+              onClick={() => setNewsCategory('AI Picks')}
             >
-              <span className="truncate">Finance</span>
+              <span className="truncate">AI Picks</span>
             </button>
             <button
               className="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-8 px-3 bg-white text-[#111418] text-sm font-medium leading-normal"
-              onClick={() => setNewsCategory('Politics')}
+              onClick={() => setNewsCategory('Trending Markets')}
             >
-              <span className="truncate">Politics</span>
+              <span className="truncate">Trending Markets</span>
             </button>
           </div>
-          <h2 className="text-[#111418] text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">Featured News</h2>
+          <div className="flex flex-wrap justify-between gap-3 p-4">
+            <p className="text-[#111418] text-[22px] font-bold leading-tight tracking-[-0.015em]">Featured News</p>
+            <div className="flex items-center gap-2">
+              <p className="text-[#111418] text-sm font-medium leading-normal">Filter by date</p>
+              <div className="text-[#111418]" data-icon="CaretDown" data-size="16px" data-weight="regular">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16px" height="16px" fill="currentColor" viewBox="0 0 256 256">
+                  <path d="M213.66,101.66l-80,80a8,8,0,0,1-11.32,0l-80-80a8,8,0,0,1,11.32-11.32L128,164.69l74.34-74.35a8,8,0,0,1,11.32,11.32Z"></path>
+                </svg>
+              </div>
+            </div>
+          </div>
+          {news.length > 0 && (
+            <div className="p-4">
+              <div className="flex items-stretch justify-between gap-4 rounded-xl bg-white p-4 shadow-[0_0_4px_rgba(0,0,0,0.1)]">
+                <div className="flex flex-[2_2_0px] flex-col gap-4">
+                  <div className="flex flex-col gap-1">
+                    <p className="text-[#60758a] text-sm font-normal leading-normal">{news[0].source} | {news[0].time}</p>
+                    <p className="text-[#111418] text-base font-bold leading-tight">{news[0].title}</p>
+                    <p className="text-[#60758a] text-sm font-normal leading-normal">
+                      {news[0].insight}
+                    </p>
+                  </div>
+                  <button
+                    className="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-8 px-4 flex-row-reverse bg-[#f0f2f5] text-[#111418] pr-2 gap-1 text-sm font-medium leading-normal w-fit"
+                    onClick={() => handleOpenModal(news[0].insight)}
+                  >
+                    <div className="text-[#111418]" data-icon="CaretRight" data-size="18px" data-weight="regular">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="18px" height="18px" fill="currentColor" viewBox="0 0 256 256">
+                        <path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"></path>
+                      </svg>
+                    </div>
+                    <span className="truncate">AI Opinion</span>
+                  </button>
+                </div>
+                <div className="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-xl flex-1" style={{ backgroundImage: `url(${news[0].imageUrl})` }}></div>
+              </div>
+            </div>
+          )}
+          <div className="flex flex-wrap justify-between gap-3 p-4">
+            <p className="text-[#111418] text-[22px] font-bold leading-tight tracking-[-0.015em]">Latest News</p>
+          </div>
           {paginatedNews.map((newsItem, index) => (
             <div className="p-4" key={index}>
               <div className="flex items-stretch justify-between gap-4 rounded-xl bg-white p-4 shadow-[0_0_4px_rgba(0,0,0,0.1)]">
