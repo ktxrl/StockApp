@@ -2,6 +2,7 @@ import React, { useContext, useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { AppContext } from '../context/AppContext';
 import StockAnalysisModal from '../components/StockAnalysisModal';
+import Watchlist from '../components/Watchlist';
 
 const Dashboard = () => {
   const { portfolio, recommendations, searchTerm, setSearchTerm } = useContext(AppContext);
@@ -11,6 +12,31 @@ const Dashboard = () => {
   const [searchResults, setSearchResults] = useState([]);
   const [stockData, setStockData] = useState(null);
   const [inputValue, setInputValue] = useState('');
+  const [debouncedSearchTerm, setDebouncedSearchTerm] = useState(inputValue);
+
+  useEffect(() => {
+    const handler = setTimeout(() => {
+      setDebouncedSearchTerm(inputValue);
+    }, 500); // 500ms delay
+
+    return () => {
+      clearTimeout(handler);
+    };
+  }, [inputValue]);
+
+  useEffect(() => {
+    if (debouncedSearchTerm) {
+      fetch(`http://localhost:3001/api/stocks/search/${debouncedSearchTerm}`)
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data);
+          setSearchResults(data.bestMatches || []);
+        })
+        .catch((err) => console.error(err));
+    } else {
+      setSearchResults([]);
+    }
+  }, [debouncedSearchTerm]);
 
   useEffect(() => {
     if (searchTerm) {
@@ -31,26 +57,28 @@ const Dashboard = () => {
   const weeklyPnl = portfolio.reduce((acc, stock) => acc + stock.pnl * 5, 0); // Mock weekly PnL
 
   const handleSearch = (e) => {
-    const value = e.target.value;
-    setInputValue(value);
-    if (value) {
-      fetch(`http://localhost:3001/api/stocks/search/${value}`)
-        .then(res => res.json())
-        .then(data => {
-          console.log(data);
-          setSearchResults(data.bestMatches || []);
-        })
-        .catch(err => console.error(err));
-    } else {
-      setSearchResults([]);
-      setSearchTerm('');
-    }
+    setInputValue(e.target.value);
   };
 
   const handleStockSelect = (symbol) => {
     setSearchTerm(symbol);
     setInputValue(symbol);
     setSearchResults([]);
+  };
+
+  const handleAddToWatchlist = (symbol) => {
+    fetch('http://localhost:3001/api/watchlist', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ symbol }),
+    })
+      .then(res => res.json())
+      .then(data => {
+        console.log('Added to watchlist:', data);
+      })
+      .catch(err => console.error(err));
   };
 
   return (
@@ -60,18 +88,18 @@ const Dashboard = () => {
         <div className="flex flex-wrap gap-4 p-4">
           <div className="flex min-w-[158px] flex-1 flex-col gap-2 rounded-xl p-6 bg-[#f0f2f5]">
             <p className="text-[#111418] text-base font-medium leading-normal">Portfolio Value</p>
-            <p className="text-[#111418] tracking-light text-2xl font-bold leading-tight">${portfolioValue.toFixed(2)}</p>
+            <p className="text-[#111418] tracking-light text-2xl font-bold leading-tight">${portfolioValue?.toFixed(2)}</p>
           </div>
         </div>
         <div className="flex flex-wrap gap-4 p-4">
           <div className="flex min-w-[158px] flex-1 flex-col gap-2 rounded-xl p-6 border border-[#dbe0e6]">
             <p className="text-[#111418] text-base font-medium leading-normal">Daily PnL</p>
-            <p className="text-[#111418] tracking-light text-2xl font-bold leading-tight">${dailyPnl.toFixed(2)}</p>
+            <p className="text-[#111418] tracking-light text-2xl font-bold leading-tight">${dailyPnl?.toFixed(2)}</p>
             <p className="text-[#078838] text-base font-medium leading-normal">+1.2%</p>
           </div>
           <div className="flex min-w-[158px] flex-1 flex-col gap-2 rounded-xl p-6 border border-[#dbe0e6]">
             <p className="text-[#111418] text-base font-medium leading-normal">Weekly PnL</p>
-            <p className="text-[#111418] tracking-light text-2xl font-bold leading-tight">${weeklyPnl.toFixed(2)}</p>
+            <p className="text-[#111418] tracking-light text-2xl font-bold leading-tight">${weeklyPnl?.toFixed(2)}</p>
             <p className="text-[#e73908] text-base font-medium leading-normal">-0.5%</p>
           </div>
         </div>
@@ -92,7 +120,7 @@ const Dashboard = () => {
             <p className="text-[#078838] text-base font-medium leading-normal">+0.1%</p>
           </div>
         </div>
-        <h2 className="text-[#111418] text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">AI Recommendations</h2>
+        <h2 className="text-[#111418] text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">Search for stocks</h2>
         <div className="px-4 py-3 relative">
           <label className="flex flex-col min-w-40 h-12 w-full">
             <div className="flex w-full flex-1 items-stretch rounded-xl h-full">
@@ -119,9 +147,9 @@ const Dashboard = () => {
           {searchResults.length > 0 && (
             <div className="absolute z-50 w-full mt-1 bg-white rounded-md shadow-lg">
               <ul className="py-1">
-                {searchResults.map(stock => (
+                {searchResults.map((stock, index) => (
                   <li
-                    key={stock["1. symbol"]}
+                    key={`${stock["1. symbol"]}-${index}`}
                     className="px-3 py-2 cursor-pointer hover:bg-gray-100"
                     onClick={() => handleStockSelect(stock["1. symbol"])}
                   >
@@ -132,6 +160,7 @@ const Dashboard = () => {
             </div>
           )}
         </div>
+        <h2 className="text-[#111418] text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">Stock Details</h2>
         {stockData && stockData.quote && stockData.quote["Global Quote"] && (
         <div className="p-4">
           <div className="rounded-xl bg-white p-4 shadow-[0_0_4px_rgba(0,0,0,0.1)]">
@@ -166,6 +195,12 @@ const Dashboard = () => {
               </div>
             </div>
             <p className="mt-4 text-sm">{stockData.overview.Description}</p>
+            <button
+              className="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-8 px-4 mt-4 bg-[#f0f2f5] text-[#111418] text-sm font-medium leading-normal w-fit"
+              onClick={() => handleAddToWatchlist(stockData.overview.Symbol)}
+            >
+              <span className="truncate">Add to Watchlist</span>
+            </button>
           </div>
         </div>
         )}
@@ -183,8 +218,8 @@ const Dashboard = () => {
             </div>
           </div>
         )}
-        {recommendations.map(rec => (
-          <div className="p-4" key={rec.ticker}>
+        {recommendations.map((rec, index) => (
+          <div className="p-4" key={`${rec.ticker}-${index}`}>
             <div className="flex items-stretch justify-between gap-4 rounded-xl bg-white p-4 shadow-[0_0_4px_rgba(0,0,0,0.1)]">
               <div className="flex flex-[2_2_0px] flex-col gap-4">
                 <div className="flex flex-col gap-1">
@@ -211,6 +246,9 @@ const Dashboard = () => {
           </div>
         ))}
         {selectedStock && <StockAnalysisModal stock={selectedStock} onClose={() => setSelectedStock(null)} />}
+        <div className="p-4">
+          <Watchlist />
+        </div>
         <h2 className="text-[#111418] text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">Portfolio Snapshot</h2>
         <div className="px-4 py-3 @container">
           <div className="flex overflow-hidden rounded-xl border border-[#dbe0e6] bg-white">
@@ -226,11 +264,11 @@ const Dashboard = () => {
               </thead>
               <tbody>
                 {portfolio.map((stock) => (
-                  <tr key={stock.ticker} className="border-t border-t-[#dbe0e6]">
+                  <tr key={stock.id} className="border-t border-t-[#dbe0e6]">
                     <td className="h-[72px] px-4 py-2 w-[400px] text-[#111418] text-sm font-normal leading-normal">{stock.ticker}</td>
-                    <td className="h-[72px] px-4 py-2 w-[400px] text-[#60758a] text-sm font-normal leading-normal">${stock.price.toFixed(2)}</td>
-                    <td className="h-[72px] px-4 py-2 w-[400px] text-[#60758a] text-sm font-normal leading-normal">{stock.change.toFixed(2)}%</td>
-                    <td className="h-[72px] px-4 py-2 w-[400px] text-[#60758a] text-sm font-normal leading-normal">{(stock.plPercentage * 100).toFixed(2)}%</td>
+                    <td className="h-[72px] px-4 py-2 w-[400px] text-[#60758a] text-sm font-normal leading-normal">${stock.price?.toFixed(2)}</td>
+                    <td className="h-[72px] px-4 py-2 w-[400px] text-[#60758a] text-sm font-normal leading-normal">{stock.change?.toFixed(2)}%</td>
+                    <td className="h-[72px] px-4 py-2 w-[400px] text-[#60758a] text-sm font-normal leading-normal">{(stock.plPercentage * 100)?.toFixed(2)}%</td>
                     <td className="h-[72px] px-4 py-2 w-60 text-sm font-normal leading-normal">
                       <button
                         className="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-8 px-4 bg-[#f0f2f5] text-[#111418] text-sm font-medium leading-normal w-full"

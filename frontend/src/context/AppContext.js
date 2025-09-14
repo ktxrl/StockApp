@@ -1,4 +1,4 @@
-import React, { createContext, useState, useEffect } from 'react';
+import React, { createContext, useState, useEffect, useCallback } from 'react';
 
 export const AppContext = createContext();
 
@@ -11,6 +11,7 @@ export const AppProvider = ({ children }) => {
   const [newsCategory, setNewsCategory] = useState('all');
   const [loading, setLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState('');
+  const [transactions, setTransactions] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -40,6 +41,65 @@ export const AppProvider = ({ children }) => {
     fetchData();
   }, []);
 
+  const fetchTransactions = useCallback(async () => {
+    try {
+      const res = await fetch('http://localhost:3001/api/portfolio/history');
+      if (!res.ok) throw new Error('Failed to fetch transactions');
+      const data = await res.json();
+      setTransactions(Array.isArray(data) ? data : []);
+    } catch (error) {
+      setError(error.message);
+    }
+  }, []);
+
+  const addStock = async (stock) => {
+    try {
+      const res = await fetch('http://localhost:3001/api/portfolio', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(stock),
+      });
+      if (!res.ok) throw new Error('Failed to add stock');
+      const newStock = await res.json();
+      setPortfolio([...portfolio, newStock]);
+    } catch (error) {
+      setError(error.message);
+    }
+  };
+
+  const updateStock = async (id, updatedStock) => {
+    try {
+      const res = await fetch(`http://localhost:3001/api/portfolio/${id}`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(updatedStock),
+      });
+      if (!res.ok) throw new Error('Failed to update stock');
+      const newStock = await res.json();
+      setPortfolio(
+        portfolio.map((stock) => (stock.id === id ? newStock : stock))
+      );
+    } catch (error) {
+      setError(error.message);
+    }
+  };
+
+  const deleteStock = async (id) => {
+    try {
+      const res = await fetch(`http://localhost:3001/api/portfolio/${id}`, {
+        method: 'DELETE',
+      });
+      if (!res.ok) throw new Error('Failed to delete stock');
+      setPortfolio(portfolio.filter((stock) => stock.id !== id));
+    } catch (error) {
+      setError(error.message);
+    }
+  };
+
   const totalValue = portfolio.reduce((acc, stock) => acc + stock.price * stock.quantity, 10000);
   const dailyPL = 1.2;
   const weeklyPL = -150;
@@ -64,6 +124,11 @@ export const AppProvider = ({ children }) => {
         setNewsCategory,
         searchTerm,
         setSearchTerm,
+        addStock,
+        updateStock,
+        deleteStock,
+        transactions,
+        fetchTransactions,
       };
 
   return (

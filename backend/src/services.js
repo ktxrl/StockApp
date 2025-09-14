@@ -18,16 +18,6 @@ const getStockData = async (symbol) => {
   }
 };
 
-const searchStocks = async (keywords) => {
-  try {
-    const response = await axios.get(`https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords=${keywords}&apikey=${process.env.ALPHAVANTAGE_API_KEY}`);
-    return response.data;
-  } catch (error) {
-    console.error('Error searching stocks:', error);
-    throw error;
-  }
-};
-
 const getStockRecommendation = async (ticker) => {
   // In a real application, you would use a sophisticated AI model to generate recommendations.
   // For this example, we'll return a mock recommendation.
@@ -57,10 +47,72 @@ const getPortfolio = async () => {
       quantity: 5,
       costBasis: 2800.00,
       pl: 171.85,
-      plPercentage: 0.0122,
-      change: -0.5
+      plPercentage: 0.15
     }
   ];
 };
 
-module.exports = { getStockData, searchStocks, getStockRecommendation, getPortfolio };
+const addStockToPortfolio = async (stock) => {
+  const searchResult = await searchStocks(stock.ticker);
+  if (!searchResult.bestMatches || searchResult.bestMatches.length === 0) {
+    throw new Error('Invalid stock ticker');
+  }
+  // Logic to add a stock to the database will go here
+  console.log('Adding stock to portfolio:', stock);
+  return { ...stock, id: Date.now() }; // Mock response
+};
+
+const updateStockInPortfolio = async (id, stock) => {
+  // Logic to update a stock in the database will go here
+  console.log(`Updating stock ${id} in portfolio:`, stock);
+  return { ...stock, id }; // Mock response
+};
+
+const deleteStockFromPortfolio = async (id) => {
+  // Logic to delete a stock from the database will go here
+  console.log(`Deleting stock ${id} from portfolio`);
+  return { id }; // Mock response
+};
+
+const getTransactionHistory = async () => {
+  // In a real application, you would fetch this from the database
+  return [
+    { id: 1, ticker: 'AAPL', type: 'buy', quantity: 10, price: 150.00, date: '2023-10-26' },
+    { id: 2, ticker: 'GOOGL', type: 'buy', quantity: 5, price: 2800.00, date: '2023-10-25' },
+    { id: 3, ticker: 'MSFT', type: 'sell', quantity: 8, price: 330.00, date: '2023-10-24' },
+  ];
+};
+
+const getWatchlist = async () => {
+  // Mock data for now
+  return [
+    { ticker: 'TSLA', price: 180.01, change: -2.54, changePercentage: -1.39 },
+    { ticker: 'NVDA', price: 120.89, change: 3.45, changePercentage: 2.94 },
+    { ticker: 'AMD', price: 160.34, change: 1.12, changePercentage: 0.70 },
+  ];
+};
+
+const addStockToWatchlist = async (stock) => {
+  // Logic to add a stock to the watchlist in the database will go here
+  console.log('Adding stock to watchlist:', stock);
+  return { ...stock }; // Mock response
+};
+
+const removeStockFromWatchlist = async (ticker) => {
+  // Logic to remove a stock from the watchlist in the database will go here
+  console.log(`Removing stock ${ticker} from watchlist`);
+  return { ticker }; // Mock response
+};
+
+module.exports = {
+  getStockData,
+  getStockRecommendation,
+  getPortfolio,
+  addStockToPortfolio,
+  updateStockInPortfolio,
+  deleteStockFromPortfolio,
+  getTransactionHistory,
+  getWatchlist,
+  addStockToWatchlist,
+  removeStockFromWatchlist
+};

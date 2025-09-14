@@ -1,5 +1,6 @@
 const express = require('express');
-const { getStockData, searchStocks, getStockRecommendation, getPortfolio } = require('../services');
+const { getStockData, searchStocks } = require('../services/alphaVantageService');
+const { getStockRecommendation, getPortfolio } = require('../services');
 
 const router = express.Router();
 
