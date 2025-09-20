@@ -11,10 +11,13 @@ router.get('/', async (req, res) => {
     const watchlistData = await Promise.all(
       watchlist.map(async (ticker) => {
         const stockData = await getStockData(ticker);
-        return { ticker, ...stockData };
+        if (stockData) {
+          return { ticker, ...stockData };
+        }
+        return null;
       })
     );
-    res.json(watchlistData);
+    res.json(watchlistData.filter(Boolean));
   } catch (error) {
     res.status(500).json({ message: 'Error fetching watchlist data' });
   }
@@ -22,11 +25,11 @@ router.get('/', async (req, res) => {
 
 // Add a stock to the watchlist
 router.post('/', (req, res) => {
-  const { ticker } = req.body;
-  if (ticker && !watchlist.includes(ticker)) {
-    watchlist.push(ticker);
+  const { symbol } = req.body;
+  if (symbol && !watchlist.includes(symbol)) {
+    watchlist.push(symbol);
     res.status(201).json({ message: 'Stock added to watchlist' });
-  } else if (watchlist.includes(ticker)) {
+  } else if (watchlist.includes(symbol)) {
     res.status(409).json({ message: 'Stock already in watchlist' });
   } else {
     res.status(400).json({ message: 'Invalid request' });

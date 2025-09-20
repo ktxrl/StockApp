@@ -1,6 +1,7 @@
 const axios = require('axios');
 
-const API_KEY = process.env.ALPHA_VANTAGE_API_KEY || 'demo'; // Using 'demo' key for now
+const API_KEY = process.env.ALPHAVANTAGE_API_KEY || 'demo'; // Using 'demo' key for now
+console.log('Using API Key:', API_KEY); // Add this line to debug
 const BASE_URL = 'https://www.alphavantage.co/query';
 
 const getStockData = async (symbol) => {
@@ -26,18 +27,7 @@ const getStockData = async (symbol) => {
 
     if (!quote || !overview || Object.keys(quote).length === 0) {
       console.error(`Error fetching data for ${symbol}: Invalid API response`);
-      return {
-        Name: 'N/A',
-        Symbol: symbol,
-        Description: 'N/A',
-        price: 0,
-        change: 0,
-        changePercentage: 0,
-        '52WeekHigh': 0,
-        '52WeekLow': 0,
-        marketCap: 'N/A',
-        peRatio: 'N/A',
-      };
+      return null;
     }
 
     return {
