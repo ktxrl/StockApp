@@ -7,15 +7,15 @@ const AlertsDropdown = () => {
         <h3 className="text-lg font-bold">Notifications</h3>
       </div>
       <ul>
-        <li className="p-4 border-t border-gray-200">
+        <li key="recommendation-tsla" className="p-4 border-t border-gray-200">
           <p className="font-bold">New AI Recommendation</p>
           <p className="text-sm text-gray-600">Tesla (TSLA) - Buy</p>
         </li>
-        <li className="p-4 border-t border-gray-200">
+        <li key="portfolio-aapl" className="p-4 border-t border-gray-200">
           <p className="font-bold">Portfolio Alert</p>
           <p className="text-sm text-gray-600">Apple (AAPL) is up 5%</p>
         </li>
-        <li className="p-4 border-t border-gray-200">
+        <li key="news-market-volatile" className="p-4 border-t border-gray-200">
           <p className="font-bold">News Update</p>
           <p className="text-sm text-gray-600">Market is volatile today</p>
         </li>

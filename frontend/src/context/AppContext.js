@@ -12,6 +12,7 @@ export const AppProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState('');
   const [transactions, setTransactions] = useState([]);
+  const [watchlist, setWatchlist] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -31,6 +32,11 @@ export const AppProvider = ({ children }) => {
         if (!newsRes.ok) throw new Error('Failed to fetch news');
         const newsData = await newsRes.json();
         setNews(Array.isArray(newsData) ? newsData : []);
+
+        const watchlistRes = await fetch('http://localhost:3001/api/watchlist');
+        if (!watchlistRes.ok) throw new Error('Failed to fetch watchlist');
+        const watchlistData = await watchlistRes.json();
+        setWatchlist(Array.isArray(watchlistData) ? watchlistData : []);
       } catch (error) {
         setError(error.message);
       } finally {
@@ -129,6 +135,8 @@ export const AppProvider = ({ children }) => {
         deleteStock,
         transactions,
         fetchTransactions,
+        watchlist,
+        setWatchlist,
       };
 
   return (

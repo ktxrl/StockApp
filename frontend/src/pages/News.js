@@ -122,8 +122,8 @@ const News = () => {
           <div className="flex flex-wrap justify-between gap-3 p-4">
             <p className="text-[#111418] text-[22px] font-bold leading-tight tracking-[-0.015em]">Latest News</p>
           </div>
-          {paginatedNews.map((newsItem) => (
-            <div className="p-4" key={newsItem.title}>
+          {paginatedNews.map((newsItem, index) => (
+            <div className="p-4" key={`${newsItem.title}-${index}`}>
               <div className="flex items-stretch justify-between gap-4 rounded-xl bg-white p-4 shadow-[0_0_4px_rgba(0,0,0,0.1)]">
                 <div className="flex flex-[2_2_0px] flex-col gap-4">
                   <div className="flex flex-col gap-1">

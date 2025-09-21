@@ -2,10 +2,9 @@ import React, { useContext, useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { AppContext } from '../context/AppContext';
 import StockAnalysisModal from '../components/StockAnalysisModal';
-import Watchlist from '../components/Watchlist';
 
 const Dashboard = () => {
-  const { portfolio, recommendations, searchTerm, setSearchTerm } = useContext(AppContext);
+  const { portfolio, recommendations, searchTerm, setSearchTerm, watchlist, setWatchlist } = useContext(AppContext);
   const navigate = useNavigate();
   const [selectedStock, setSelectedStock] = useState(null);
   const [recommendation, setRecommendation] = useState(null);
@@ -77,6 +76,7 @@ const Dashboard = () => {
       .then(res => res.json())
       .then(data => {
         console.log('Added to watchlist:', data);
+        setWatchlist([...watchlist, data]);
       })
       .catch(err => console.error(err));
   };
@@ -147,9 +147,9 @@ const Dashboard = () => {
           {searchResults.length > 0 && (
             <div className="absolute z-50 w-full mt-1 bg-white rounded-md shadow-lg">
               <ul className="py-1">
-                {searchResults.map((stock, index) => (
+                {searchResults.map((stock) => (
                   <li
-                    key={`${stock["1. symbol"]}-${index}`}
+                    key={stock["1. symbol"]}
                     className="px-3 py-2 cursor-pointer hover:bg-gray-100"
                     onClick={() => handleStockSelect(stock["1. symbol"])}
                   >
@@ -159,6 +159,17 @@ const Dashboard = () => {
               </ul>
             </div>
           )}
+        </div>
+        <div className="p-4">
+          <h2 className="text-[#111418] text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">Your Watchlist</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {watchlist.map((stock) => (
+              <div key={stock.symbol} className="rounded-xl bg-white p-4 shadow-[0_0_4px_rgba(0,0,0,0.1)]">
+                <h3 className="text-lg font-bold">{stock.symbol}</h3>
+                <p className="text-2xl font-bold">${stock.price}</p>
+              </div>
+            ))}
+          </div>
         </div>
         <h2 className="text-[#111418] text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">Stock Details</h2>
         {stockData && stockData.quote && stockData.quote["Global Quote"] && (
@@ -218,8 +229,8 @@ const Dashboard = () => {
             </div>
           </div>
         )}
-        {recommendations.map((rec, index) => (
-          <div className="p-4" key={`${rec.ticker}-${index}`}>
+        {recommendations.map((rec) => (
+          <div className="p-4" key={rec.ticker}>
             <div className="flex items-stretch justify-between gap-4 rounded-xl bg-white p-4 shadow-[0_0_4px_rgba(0,0,0,0.1)]">
               <div className="flex flex-[2_2_0px] flex-col gap-4">
                 <div className="flex flex-col gap-1">
@@ -246,9 +257,6 @@ const Dashboard = () => {
           </div>
         ))}
         {selectedStock && <StockAnalysisModal stock={selectedStock} onClose={() => setSelectedStock(null)} />}
-        <div className="p-4">
-          <Watchlist />
-        </div>
         <h2 className="text-[#111418] text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">Portfolio Snapshot</h2>
         <div className="px-4 py-3 @container">
           <div className="flex overflow-hidden rounded-xl border border-[#dbe0e6] bg-white">
