@@ -4,7 +4,7 @@ import { AppContext } from '../context/AppContext';
 import StockAnalysisModal from '../components/StockAnalysisModal';
 
 const Dashboard = () => {
-  const { portfolio, recommendations, searchTerm, setSearchTerm, watchlist, setWatchlist } = useContext(AppContext);
+  const { portfolio, recommendations, searchTerm, setSearchTerm, watchlist, addToWatchlist } = useContext(AppContext);
   const navigate = useNavigate();
   const [selectedStock, setSelectedStock] = useState(null);
   const [recommendation, setRecommendation] = useState(null);
@@ -63,22 +63,6 @@ const Dashboard = () => {
     setSearchTerm(symbol);
     setInputValue(symbol);
     setSearchResults([]);
-  };
-
-  const handleAddToWatchlist = (symbol) => {
-    fetch('http://localhost:3001/api/watchlist', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ symbol }),
-    })
-      .then(res => res.json())
-      .then(data => {
-        console.log('Added to watchlist:', data);
-        setWatchlist([...watchlist, data]);
-      })
-      .catch(err => console.error(err));
   };
 
   return (
@@ -160,43 +144,8 @@ const Dashboard = () => {
             </div>
           )}
         </div>
-        <div className="p-4">
-          <h2 className="text-[#111418] text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">Your Watchlist</h2>
-          <div className="flex overflow-hidden rounded-xl border border-[#dbe0e6] bg-white">
-            <table className="flex-1">
-              <thead>
-                <tr className="bg-white">
-                  <th className="px-4 py-3 text-left text-[#111418] w-[400px] text-sm font-medium leading-normal">Symbol</th>
-                  <th className="px-4 py-3 text-left text-[#111418] w-[400px] text-sm font-medium leading-normal">Price</th>
-                  <th className="px-4 py-3 text-left text-[#111418] w-60 text-sm font-medium leading-normal">Action</th>
-                </tr>
-              </thead>
-              <tbody>
-                {watchlist.length > 0 ? (
-                  watchlist.map((stock) => (
-                    <tr key={stock.symbol} className="border-t border-t-[#dbe0e6]">
-                      <td className="h-[72px] px-4 py-2 w-[400px] text-[#111418] text-sm font-normal leading-normal">{stock.symbol}</td>
-                      <td className="h-[72px] px-4 py-2 w-[400px] text-[#60758a] text-sm font-normal leading-normal">${stock.price}</td>
-                      <td className="h-[72px] px-4 py-2 w-60 text-sm font-normal leading-normal">
-                        <button
-                          className="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-8 px-4 bg-[#f0f2f5] text-[#111418] text-sm font-medium leading-normal w-full"
-                        >
-                          <span className="truncate">Remove</span>
-                        </button>
-                      </td>
-                    </tr>
-                  ))
-                ) : (
-                  <tr>
-                    <td colSpan="3" className="text-center py-4">Your watchlist is empty.</td>
-                  </tr>
-                )}
-              </tbody>
-            </table>
-          </div>
-        </div>
-        <h2 className="text-[#111418] text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">Stock Details</h2>
-        {stockData && stockData.quote && stockData.quote["Global Quote"] && (
+        <h2 className="text-[#111418] text-[22px] font-bold leading-tight tracking-[-0.015em] pb-3 pt-5">Stock Details</h2>
+        {stockData && stockData.quote && stockData.quote["Global Quote"] ? (
         <div className="p-4">
           <div className="rounded-xl bg-white p-4 shadow-[0_0_4px_rgba(0,0,0,0.1)]">
             <h3 className="text-lg font-bold">{stockData.overview.Name} ({stockData.overview.Symbol})</h3>
@@ -232,13 +181,54 @@ const Dashboard = () => {
             <p className="mt-4 text-sm">{stockData.overview.Description}</p>
             <button
               className="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-8 px-4 mt-4 bg-[#f0f2f5] text-[#111418] text-sm font-medium leading-normal w-fit"
-              onClick={() => handleAddToWatchlist(stockData.overview.Symbol)}
+              onClick={() => addToWatchlist(stockData.overview.Symbol)}
             >
               <span className="truncate">Add to Watchlist</span>
             </button>
           </div>
         </div>
+        ) : (
+          <div className="p-4">
+            <p className="text-center text-gray-500">Search for a stock to see its details.</p>
+          </div>
         )}
+        <h2 className="text-[#111418] text-[22px] font-bold leading-tight tracking-[-0.015em] pb-3 pt-5">Your Watchlist</h2>
+        <div className="p-4">
+          <div className="flex overflow-hidden rounded-xl border border-[#dbe0e6] bg-white">
+            <table className="flex-1">
+              <thead>
+                <tr className="bg-white">
+                  <th className="px-4 py-3 text-left text-[#111418] w-[400px] text-sm font-medium leading-normal">Symbol</th>
+                  <th className="px-4 py-3 text-left text-[#111418] w-[400px] text-sm font-medium leading-normal">Price</th>
+                  <th className="px-4 py-3 text-left text-[#111418] w-60 text-sm font-medium leading-normal">Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                {watchlist.length > 0 ? (
+                  watchlist.map((stock) => (
+                    <tr key={stock.ticker} className="border-t border-t-[#dbe0e6]">
+                      <td className="h-[72px] px-4 py-2 w-[400px] text-[#111418] text-sm font-normal leading-normal">{stock.ticker}</td>
+                      <td className="h-[72px] px-4 py-2 w-[400px] text-[#60758a] text-sm font-normal leading-normal">
+                        ${stock.quote && stock.quote['Global Quote'] ? parseFloat(stock.quote['Global Quote']['05. price']).toFixed(2) : 'N/A'}
+                      </td>
+                      <td className="h-[72px] px-4 py-2 w-60 text-sm font-normal leading-normal">
+                        <button
+                          className="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-8 px-4 bg-[#f0f2f5] text-[#111418] text-sm font-medium leading-normal w-full"
+                        >
+                          <span className="truncate">Remove</span>
+                        </button>
+                      </td>
+                    </tr>
+                  ))
+                ) : (
+                  <tr>
+                    <td colSpan="3" className="text-center py-4">Your watchlist is empty.</td>
+                  </tr>
+                )}
+              </tbody>
+            </table>
+          </div>
+        </div>
         {recommendation && (
           <div className="p-4">
             <div className="flex items-stretch justify-between gap-4 rounded-xl bg-white p-4 shadow-[0_0_4px_rgba(0,0,0,0.1)]">

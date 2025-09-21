@@ -106,6 +106,34 @@ export const AppProvider = ({ children }) => {
     }
   };
 
+  const addToWatchlist = async (symbol) => {
+    try {
+      const res = await fetch('http://localhost:3001/api/watchlist', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ symbol }),
+      });
+      if (res.status === 409) {
+        // Stock is already in the watchlist, no need to do anything
+        console.log("Stock already in watchlist");
+        return;
+      }
+      if (!res.ok) {
+        const errorData = await res.json();
+        throw new Error(errorData.message || 'Failed to add to watchlist');
+      }
+      // Refetch watchlist data after adding a new stock
+      const watchlistRes = await fetch('http://localhost:3001/api/watchlist');
+      if (!watchlistRes.ok) throw new Error('Failed to fetch watchlist');
+      const watchlistData = await watchlistRes.json();
+      setWatchlist(Array.isArray(watchlistData) ? watchlistData : []);
+    } catch (error) {
+      setError(error.message);
+    }
+  };
+
   const totalValue = portfolio.reduce((acc, stock) => acc + stock.price * stock.quantity, 10000);
   const dailyPL = 1.2;
   const weeklyPL = -150;
@@ -136,7 +164,7 @@ export const AppProvider = ({ children }) => {
         transactions,
         fetchTransactions,
         watchlist,
-        setWatchlist,
+        addToWatchlist,
       };
 
   return (
