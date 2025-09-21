@@ -1,6 +1,6 @@
 const axios = require('axios');
 
-const API_KEY = process.env.ALPHAVANTAGE_API_KEY || 'demo'; // Using 'demo' key for now
+const API_KEY = 'demo'; // Using 'demo' key for now
 console.log('Using API Key:', API_KEY); // Add this line to debug
 const BASE_URL = 'https://www.alphavantage.co/query';
 

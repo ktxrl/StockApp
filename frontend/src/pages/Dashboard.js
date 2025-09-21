@@ -162,13 +162,37 @@ const Dashboard = () => {
         </div>
         <div className="p-4">
           <h2 className="text-[#111418] text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">Your Watchlist</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            {watchlist.map((stock) => (
-              <div key={stock.symbol} className="rounded-xl bg-white p-4 shadow-[0_0_4px_rgba(0,0,0,0.1)]">
-                <h3 className="text-lg font-bold">{stock.symbol}</h3>
-                <p className="text-2xl font-bold">${stock.price}</p>
-              </div>
-            ))}
+          <div className="flex overflow-hidden rounded-xl border border-[#dbe0e6] bg-white">
+            <table className="flex-1">
+              <thead>
+                <tr className="bg-white">
+                  <th className="px-4 py-3 text-left text-[#111418] w-[400px] text-sm font-medium leading-normal">Symbol</th>
+                  <th className="px-4 py-3 text-left text-[#111418] w-[400px] text-sm font-medium leading-normal">Price</th>
+                  <th className="px-4 py-3 text-left text-[#111418] w-60 text-sm font-medium leading-normal">Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                {watchlist.length > 0 ? (
+                  watchlist.map((stock) => (
+                    <tr key={stock.symbol} className="border-t border-t-[#dbe0e6]">
+                      <td className="h-[72px] px-4 py-2 w-[400px] text-[#111418] text-sm font-normal leading-normal">{stock.symbol}</td>
+                      <td className="h-[72px] px-4 py-2 w-[400px] text-[#60758a] text-sm font-normal leading-normal">${stock.price}</td>
+                      <td className="h-[72px] px-4 py-2 w-60 text-sm font-normal leading-normal">
+                        <button
+                          className="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-8 px-4 bg-[#f0f2f5] text-[#111418] text-sm font-medium leading-normal w-full"
+                        >
+                          <span className="truncate">Remove</span>
+                        </button>
+                      </td>
+                    </tr>
+                  ))
+                ) : (
+                  <tr>
+                    <td colSpan="3" className="text-center py-4">Your watchlist is empty.</td>
+                  </tr>
+                )}
+              </tbody>
+            </table>
           </div>
         </div>
         <h2 className="text-[#111418] text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">Stock Details</h2>
